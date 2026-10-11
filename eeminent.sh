@@ -2,7 +2,7 @@
 
 # EEMINENT.SH only supports Resolute Raccoon. It does not support other ubuntu releases or
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
-# necessary to enjoy the latest version of this unique environment
+# necessary to enjoy the latest version of this unique environment.
 
 # --- Call the companion script ---
 source "$HOME"/.eeminent/ekonfig.sh
@@ -12,15 +12,19 @@ menu_slct() {
 
   echo
   if [ "$is_einstl" == false ]; then
-    printf "1 $green_bright%s $off%s\n\n" "Install essentials" | pv -qL 20
-    printf "2 $orange_dim%s $off%s\n\n" "(Build the whole ecosystem)" | pv -qL 30
-    printf "3 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)" | pv -qL 30
-    printf "4 $italic%s $off%s\n\n" "Quit the script" | pv -qL 20
+    printf "1 $green_bright%s $off%s\n\n" "Install essentials only"
+    printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem"
+    printf "3 $magenta_dim%s $off%s\n\n" "(Update and rebuild essentials)"
+    printf "4 $blue_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
+    printf "5 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)"
+    printf "6 $italic%s $off%s\n\n" "Quit the script"
   else
-    printf "1 $green_dim%s $off%s\n\n" "(Install essentials)" | pv -qL 30
-    printf "2 $orange_bright%s $off%s\n\n" "Build the whole ecosystem" | pv -qL 20
-    printf "3 $red_bright%s $off%s\n\n" "UNINSTALL the Enlightenment ecosystem" | pv -qL 20
-    printf "4 $italic%s $off%s\n\n" "Quit the script" | pv -qL 20
+    printf "1 $green_dim%s $off%s\n\n" "(Install essentials)"
+    printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
+    printf "3 $magenta_bright%s $off%s\n\n" "Update and rebuild essentials"
+    printf "4 $blue_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
+    printf "5 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs"
+    printf "6 $italic%s $off%s\n\n" "Quit the script"
   fi
 
   read -r usr_input
@@ -34,31 +38,58 @@ bin_deps_min() {
   fi
 }
 
-# --- Programs to be built using the Meson build system ---
-prog_mbs_min=(
-  efl
-  terminology
-  enlightenment
-)
+# --- Set path for Enlightenment source folders ---
+set_p_src() {
+  echo
+
+  # Do not append a trailing slash (/) to the end of the path prefix.
+  read -r -p "Please enter a path for the Enlightenment source folders \
+  (e.g. /home/$LOGNAME/Documents or /home/$LOGNAME/testing): " mypath
+
+  if [[ ! "$mypath" =~ ^/home/$LOGNAME.* ]]; then
+    err_msg "PATH MUST BE WITHIN YOUR HOME DIRECTORY (/home/$LOGNAME)"
+    beep_exit
+    exit 1
+  fi
+
+  echo
+  read -r -p "Create directory $mypath/sources? [Y/n] " confirm
+
+  if [[ $confirm =~ ^[Nn]$ ]]; then
+    beep_exit
+    exit 1
+  fi
+
+  mkdir -p "$mypath/sources"
+  p_srcdir="$mypath/sources"
+  echo "$p_srcdir" >"$HOME/.cache/ebuilds/storepath"
+  printf "\n$green_bright%s $off%s\n\n" "You have chosen: $p_srcdir"
+  sleep 2
+
+  cd "$HOME"
+  esrcdir="$p_srcdir"
+  mkdir -p "$esrcdir/enlighten"
+  cd "$esrcdir/enlighten"
+}
 
 build_essentials() {
-  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
-
-  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
-  $clonefl
-  echo
-  $clonety
-  echo
-  $clonenl
-  echo
-
   do_bash_alias
   bin_deps_min
   set_p_src
 
+  sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
+  sudo ldconfig
+
+  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
+
+  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
+  $clonefl
+  $clonety
+  $clonenl
+
   for i in "${prog_mbs_min[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
-    printf "\n$bold%s $off%s\n\n" "Updating $i..."
+    printf "\n$bold%s $off%s\n\n" "Building $i..."
     git reset --hard &>/dev/null
     $rebasef && git pull
 
@@ -98,40 +129,6 @@ build_essentials() {
   done
 }
 
-# --- Set path for Enlightenment source folders ---
-set_p_src() {
-  echo
-
-  # Do not append a trailing slash (/) to the end of the path prefix.
-  read -r -p "Please enter a path for the Enlightenment source folders \
-  (e.g. /home/$LOGNAME/Documents or /home/$LOGNAME/testing): " mypath
-
-  if [[ ! "$mypath" =~ ^/home/$LOGNAME.* ]]; then
-    err_msg "PATH MUST BE WITHIN YOUR HOME DIRECTORY (/home/$LOGNAME)"
-    beep_exit
-    exit 1
-  fi
-
-  echo
-  read -r -p "Create directory $mypath/sources? [Y/n] " confirm
-
-  if [[ $confirm =~ ^[Nn]$ ]]; then
-    beep_exit
-    exit 1
-  fi
-
-  mkdir -p "$mypath/sources"
-  p_srcdir="$mypath/sources"
-  echo "$p_srcdir" >"$HOME/.cache/ebuilds/storepath"
-  printf "\n$green_bright%s $off%s\n\n" "You have chosen: $p_srcdir"
-  sleep 2
-
-  cd "$HOME"
-  esrcdir="$p_srcdir"
-  mkdir -p "$esrcdir/enlighten"
-  cd "$esrcdir/enlighten"
-}
-
 essentials_go() {
   clear
   printf "\n$orange_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
@@ -150,7 +147,7 @@ essentials_go() {
 
   beep_ok
 
-  if [ "$XDG_SESSION_TYPE" == "x11" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+  if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     echo
     cowsay -f www "Now log out of your existing session and press Ctrl+Alt+F3 to switch to tty3, \
         then enter your credentials and type: enlightenment_start" | lolcat -a
@@ -162,7 +159,7 @@ essentials_go() {
     echo
     cowsay -f www "That's it. Now type: enlightenment_start"
     echo
-    # If Enlightenment fails to start, relaunch the script and select option 2.
+    # If Enlightenment fails to start, relaunch the script and select option ???
     # After the build is complete, type exit, then go back to the login screen.
   fi
 
@@ -196,12 +193,20 @@ and_behold() {
       build_all
       ;;
     3)
+      do_test
+      rebuild_essentials
+      ;;
+    4)
+      do_test
+      rebuild_all
+      ;;
+    5)
       source "$HOME"/.eeminent/expel.sh
       uninstall_enlighten
       printf "\n\n$red_bright%s $off%s\n\n" "Done."
       break
       ;;
-    4)
+    6)
       printf "\n$blue_bright%s $off%s\n\n" "Bye!"
       exit 0
       ;;
@@ -219,9 +224,6 @@ and_behold() {
 
 # --- Main entry point ---
 main() {
-  chk_pv
-  chk_sl
-  chk_mn
   lo
   and_behold
 }
