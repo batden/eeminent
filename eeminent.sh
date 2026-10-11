@@ -19,7 +19,7 @@ menu_slct() {
     printf "5 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)"
     printf "6 $italic%s $off%s\n\n" "Quit the script"
   else
-    printf "1 $green_dim%s $off%s\n\n" "(Install essentials)"
+    printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
     printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
     printf "3 $magenta_bright%s $off%s\n\n" "Update and rebuild essentials"
     printf "4 $blue_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
