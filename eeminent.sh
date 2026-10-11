@@ -48,7 +48,6 @@ set_p_src() {
 
   if [[ ! "$mypath" =~ ^/home/$LOGNAME.* ]]; then
     err_msg "PATH MUST BE WITHIN YOUR HOME DIRECTORY (/home/$LOGNAME)"
-    beep_exit
     exit 1
   fi
 
@@ -56,7 +55,6 @@ set_p_src() {
   read -r -p "Create directory $mypath/sources? [Y/n] " confirm
 
   if [[ $confirm =~ ^[Nn]$ ]]; then
-    beep_exit
     exit 1
   fi
 
@@ -123,7 +121,6 @@ build_essentials() {
       ;;
     esac
 
-    beep_attention
     $snin
     sudo ldconfig
   done
@@ -133,19 +130,11 @@ essentials_go() {
   clear
   printf "\n$orange_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
 
-  # Check for available updates of the script folder first.
-  cd "$scrfldr" && git pull &>/dev/null
-  cp -f eeminent.sh "$HOME/.local/bin"
-  chmod +x "$HOME/.local/bin/eeminent.sh"
-  sleep 1
-
   build_essentials
 
   sudo mkdir -p /usr/share/wayland-sessions
   sudo mv -f /usr/local/share/wayland-sessions/enlightenment-wayland.desktop \
     /usr/share/wayland-sessions/enlightenment-wayland.desktop &>/dev/null
-
-  beep_ok
 
   if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     echo
@@ -212,7 +201,6 @@ and_behold() {
       ;;
     *)
       printf "\n$red_bright%s $off%s\n\n" "INVALID INPUT."
-      beep_exit
       exit 1
 
       ;;

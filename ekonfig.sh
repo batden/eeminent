@@ -54,8 +54,6 @@ err_msg() {
   local message=$1
   local code=${2:-}
 
-  beep_exit || true
-
   if [ -n "$code" ]; then
     printf "\n%b%s (CODE: %s)%b\n\n" \
       "$red_bright" "$message" "$code" "$off"
