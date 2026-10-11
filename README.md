@@ -1,4 +1,4 @@
-# equivoke
+# eeminent
 
 This set of Bash scripts will build, install, and update the Enlightenment environment on your system.
 
@@ -17,7 +17,7 @@ sudo apt install git
 Next, clone the repository with:
 
 ```bash
-git clone https://github.com/batden/equivoke.git ~/.equivoke
+git clone https://github.com/batden/equivoke.git ~/.eeminent
 ```
 
 This creates a new hidden folder named .eeminent in your home directory.
@@ -39,7 +39,7 @@ Then, execute the script:
 The next time you run it, simply open a terminal and type:
 
 ```bash
-equivoke.sh
+eeminent.sh
 ```
 
 Use auto-completion: Type _eem_ and press the Tab key.
