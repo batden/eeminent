@@ -17,7 +17,7 @@ sudo apt install git
 Next, clone the repository with:
 
 ```bash
-git clone https://github.com/batden/equivoke.git ~/.eeminent
+git clone https://github.com/batden/eeminent.git ~/.eeminent
 ```
 
 This creates a new hidden folder named .eeminent in your home directory.
@@ -50,7 +50,7 @@ That's it.
 
 You can uninstall Enlightenment and related applications from your computer at any time.
 
-To do so, run the script and select option 4 from the menu.
+To do so, run the script and select option 5 from the menu.
 
 ## In the Picture
 
