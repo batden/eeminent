@@ -6,7 +6,7 @@ For more information, please refer to the comments in the scripts.
 
 ## Installation
 
-Before using equivoke, you may need to install the git package on your system if it isn't already there.
+Before using eeminent, you may need to install the git package on your system if it isn't already there.
 
 Open a terminal window and type in the following:
 
@@ -20,20 +20,20 @@ Next, clone the repository with:
 git clone https://github.com/batden/equivoke.git ~/.equivoke
 ```
 
-This creates a new hidden folder named .equivoke in your home directory.
+This creates a new hidden folder named .eeminent in your home directory.
 
-Copy the equivoke.sh file from the new .equivoke folder to your download folder.
+Copy the eeminent.sh file from the new .eeminent folder to your download folder.
 
 Navigate to the download folder and make the script executable:
 
 ```bash
-chmod +x equivoke.sh
+chmod +x eeminent.sh
 ```
 
 Then, execute the script:
 
 ```bash
-./equivoke.sh
+./eeminent.sh
 ```
 
 The next time you run it, simply open a terminal and type:
@@ -42,7 +42,7 @@ The next time you run it, simply open a terminal and type:
 equivoke.sh
 ```
 
-Use auto-completion: Type _equ_ and press the Tab key.
+Use auto-completion: Type _eem_ and press the Tab key.
 
 That's it.
 
