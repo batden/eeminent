@@ -188,17 +188,6 @@ rebuild_essentials_go() {
 
   rebuild_essentials
 
-  if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-    echo
-    cowsay -f www "Now log out of your existing session and press Ctrl+Alt+F3 to switch to tty3, \
-        then enter your credentials and type: enlightenment_start"
-    echo
-  else
-    echo
-    cowsay -f www "That's it. Now type: enlightenment_start"
-    echo
-  fi
-
   exit 0
 }
 
