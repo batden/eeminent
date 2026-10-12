@@ -198,6 +198,9 @@ rebuild_essentials_go() {
 
   rebuild_essentials
 
+  echo
+  cowsay "That's All Folks!"
+
   exit 0
 }
 
