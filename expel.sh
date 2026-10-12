@@ -13,3 +13,5 @@ prog_rm=(
 )
 
 # --- Clean up leftover files after uninstall ---
+
+# --- Final cleanup steps ---
