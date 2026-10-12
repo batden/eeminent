@@ -72,7 +72,7 @@ set_p_src() {
 }
 
 build_essentials() {
-  do_bash_alias
+  do_bsh_alias
   bin_deps_min
   set_p_src
 
