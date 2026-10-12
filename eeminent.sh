@@ -255,7 +255,7 @@ and_behold() {
       break
       ;;
     6)
-      printf "\n$blue_bright%s $off%s\n\n" "Bye!"
+      printf "\n$bold%s $off%s\n\n" "Bye!"
       exit 0
       ;;
     *)
