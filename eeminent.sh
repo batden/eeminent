@@ -1,4 +1,5 @@
 #!/bin/bash
+#shellcheck  disable=SC1091 disable=SC2154 disable=SC2164
 
 # EEMINENT.SH only supports Resolute Raccoon. It does not support other ubuntu releases or
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
@@ -71,6 +72,8 @@ set_p_src() {
 }
 
 build_essentials() {
+  clear
+  printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
   do_bash_alias
   bin_deps_min
   set_p_src
@@ -88,8 +91,6 @@ build_essentials() {
   for i in "${prog_mbs_min[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Building $i..."
-    git reset --hard &>/dev/null
-    $rebasef && git pull
 
     case $i in
     efl)
@@ -115,7 +116,7 @@ build_essentials() {
         -Dwl=true
       ninja -C build || mng_err
       ;;
-    *)
+    terminology)
       meson setup build -Dbuildtype=release
       ninja -C build
       ;;
