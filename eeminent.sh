@@ -189,6 +189,8 @@ build_essentials_go() {
   cowsay "Now log out of your existing session, then select Enlightenment on the login screen... \
     That's All Folks!"
 
+  cp -f "$dldir/eeminent.sh" "$HOME/.local/bin"
+
   exit 0
 }
 
