@@ -210,7 +210,7 @@ rebuild_essentials_go() {
   rebuild_essentials
 
   echo
-  cowsay "That's All Folks!"
+  cowsay "Essential components rebuilt successfully."
 
   exit 0
 }
