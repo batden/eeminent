@@ -6,3 +6,10 @@
 
 # --- Call the companion script ---
 source "$HOME"/.eeminent/ekonfig.sh
+
+# --- Enlightenment programs to be removed ---
+prog_rm=(
+
+)
+
+# --- Clean up leftover files after uninstall ---
