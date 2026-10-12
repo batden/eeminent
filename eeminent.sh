@@ -185,6 +185,9 @@ build_essentials_go() {
   build_essentials
   mv_sysfiles
 
+  # This will protect the file from accidental deletion.
+  sudo chattr +i "$HOME/.cache/ebuilds/storepath"
+
   echo
   cowsay "Now log out of your existing session, then select Enlightenment on the login screen... \
     That's All Folks!"
@@ -197,6 +200,12 @@ build_essentials_go() {
 rebuild_essentials_go() {
   clear
   printf "\n$magenta_bright%s $off%s\n\n" "* REBUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
+
+  # Check for available updates of the script folder first.
+  cd "$scrfldr" && git pull &>/dev/null
+  cp -f eeminent.sh "$HOME/.local/bin"
+  chmod +x "$HOME/.local/bin/eeminent.sh"
+  sleep 1
 
   rebuild_essentials
 
