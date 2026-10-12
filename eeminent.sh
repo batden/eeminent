@@ -175,21 +175,9 @@ build_essentials_go() {
 
   build_essentials
 
-  if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-    echo
-    cowsay -f www "Now log out of your existing session and press Ctrl+Alt+F3 to switch to tty3, \
-        then enter your credentials and type: enlightenment_start"
-    echo
-    # Wait a few seconds for the Wayland session to start.
-    # When you're done, type exit
-    # Pressing Ctrl+Alt+F1 will bring you back to the login screen.
-  else
-    echo
-    cowsay -f www "That's it. Now type: enlightenment_start"
-    echo
-    # If Enlightenment fails to start, relaunch the script and select option ???
-    # After the build is complete, type exit, then go back to the login screen.
-  fi
+  echo
+  cowsay "Now log out of your existing session, then select Enlightenment on the login screen... \
+    That's All Folks!"
 
   exit 0
 }
