@@ -69,6 +69,7 @@ build-essential
 ccache
 check
 cmake
+cowsay
 doxygen
 libasound2-dev
 libavif-dev

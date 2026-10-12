@@ -72,8 +72,6 @@ set_p_src() {
 }
 
 build_essentials() {
-  clear
-  printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
   do_bash_alias
   bin_deps_min
   set_p_src
@@ -129,7 +127,7 @@ build_essentials() {
 
 essentials_go() {
   clear
-  printf "\n$orange_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
+  printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
 
   build_essentials
 
@@ -140,7 +138,7 @@ essentials_go() {
   if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     echo
     cowsay -f www "Now log out of your existing session and press Ctrl+Alt+F3 to switch to tty3, \
-        then enter your credentials and type: enlightenment_start" | lolcat -a
+        then enter your credentials and type: enlightenment_start"
     echo
     # Wait a few seconds for the Wayland session to start.
     # When you're done, type exit
