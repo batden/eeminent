@@ -74,6 +74,7 @@ cowsay
 doxygen
 libasound2-dev
 libavif-dev
+libbz2-dev
 libconfig-dev
 libexif-dev
 libfontconfig-dev
@@ -92,7 +93,7 @@ libjxl-dev
 liblua5.2-dev
 libopenjp2-7-dev
 libosmesa6-dev
-libpam0-dev
+libpam0g-dev
 libpipewire-0.3-dev
 libpng-dev
 libpoppler-cpp-dev
@@ -110,7 +111,6 @@ libunwind-dev
 libwebp-dev
 libx11-dev
 libx11-xcb-dev
-libx35-dev
 libxcomposite-dev
 libxcursor-dev
 libxdamage-dev
@@ -120,7 +120,6 @@ libxkbcommon-x11-dev
 libxrandr-dev
 libxss-dev
 libxtst-dev
-libz1g-dev
 meson
 ninja-build
 systemd-dev
