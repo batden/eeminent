@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
+# shellcheck disable=SC1091
 
 # This script will help you uninstall Enlightenment and related applications cleanly and safely.
 # Note that the binary dependencies (dev packages) are preserved for system consistency.
@@ -8,9 +9,6 @@
 source "$HOME"/.eeminent/ekonfig.sh
 
 # --- Enlightenment programs to be removed ---
-prog_rm=(
-
-)
 
 # --- Clean up leftover files after uninstall ---
 
