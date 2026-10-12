@@ -125,6 +125,50 @@ build_essentials() {
   done
 }
 
+rebuid_essentials() {
+  bin_deps_min
+
+  for i in "${prog_mbs_min[@]}"; do
+    cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
+    printf "\n$bold%s $off%s\n\n" "Rebuilding $i..."
+    git reset --hard &>/dev/null
+    $rebasef && git pull
+
+    case $i in
+    efl)
+    meson setup --reconfigure build -Dbuildtype=release \
+        -Dnative-arch-optimization=true \
+        -Dfb=true \
+        -Dharfbuzz=true \
+        -Dlua-interpreter=lua \
+        -Delua=true \
+        -Dbindings=lua,cxx \
+        -Devas-loaders-disabler= \
+        -Dglib=true \
+        -Ddrm=true \
+        -Dwl=true \
+        -Dopengl=es-egl \
+        -Dbuild-tests=false \
+        -Ddocs=false \
+        -Dpipewire=true
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+    meson setup --reconfigure build -Dbuildtype=release \
+        -Dwl=true
+      ninja -C build || mng_err
+      ;;
+    terminology)
+    meson setup --reconfigure build -Dbuildtype=release
+      ninja -C build || mng_err
+      ;;
+    esac
+
+    $snin
+    sudo ldconfig
+  done
+}
+
 essentials_go() {
   clear
   printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
