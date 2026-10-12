@@ -246,15 +246,15 @@ and_behold() {
       rebuild_essentials_go
       ;;
     4)
-     # source "$HOME"/.eeminent/embrace.sh
+      #source "$HOME"/.eeminent/embrace.sh
       do_test
       #rebuild_all_go
       ;;
     5)
-      source "$HOME"/.eeminent/expel.sh
-      uninstall_enlighten
+      #source "$HOME"/.eeminent/expel.sh
+      #uninstall_enlighten
       printf "\n\n$red_bright%s $off%s\n\n" "Done."
-      break
+      #break
       ;;
     6)
       printf "\n$bold%s $off%s\n\n" "Bye!"
