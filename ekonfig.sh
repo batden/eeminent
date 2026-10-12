@@ -25,6 +25,7 @@ docdir=$(xdg-user-dir DOCUMENTS)
 scrfldr=$HOME/.eeminent
 rebasef="git config pull.rebase false"
 snin="sudo ninja -C build install"
+distro=$(lsb_release -sc)
 
 # --- Manage errors and keyboard interrupts ---
 trap 'mng_err' EXIT
@@ -157,7 +158,6 @@ do_tests() {
 
   if systemd-detect-virt -q --container; then
     printf "\n$red_bright%s $off%s\n\n" "EEMINENT IS NOT INTENDED FOR USE INSIDE CONTAINERS."
-    beep_exit
     exit 1
   fi
 
@@ -166,14 +166,12 @@ do_tests() {
     sleep 1
   else
     printf "\n$red_bright%s $off%s\n\n" "UNSUPPORTED OPERATING SYSTEM [ $(lsb_release -ds) ]."
-    beep_exit
     exit 1
   fi
 
   if ! git ls-remote https://git.enlightenment.org/enlightenment/efl.git HEAD &>/dev/null; then
     printf "\n$red_bright%s %s\n" "REMOTE HOST IS UNREACHABLE——TRY AGAIN LATER"
     printf "$red_bright%s $off%s\n\n" "OR CHECK YOUR INTERNET CONNECTION."
-    beep_exit
     exit 1
   fi
 
