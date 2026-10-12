@@ -128,6 +128,8 @@ build_essentials() {
 rebuild_essentials() {
   bin_deps_min
 
+  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
+
   for i in "${prog_mbs_min[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Rebuilding $i..."
