@@ -39,6 +39,38 @@ bin_deps_min() {
   fi
 }
 
+# --- Source dependencies check ---
+cnt_dir_min() {
+  count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+  if [ ! -d efl ] || [ ! -d enlightenment ]; then
+    err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
+    exit 1
+  fi
+  # Tip: You can try to download the missing file(s) manually (see clonefl or clonenl in EKONFIG.SH),
+  # then rerun the script and select option 1 again; or relaunch the script at a later time.
+  # In both cases, be sure to enter the same path for the Enlightenment source folders
+  # as you used before.
+
+  case $count in
+  3)
+    printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
+    sleep 2
+    ;;
+  0)
+    err_msg "OOPS! SOMETHING WENT WRONG."
+    exit 1
+    ;;
+  *)
+    printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 3 PROGRAMS HAVE BEEN DOWNLOADED!"
+    printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
+    sleep 10
+    ;;
+  esac
+
+  return 0
+}
+
 # --- Set path for Enlightenment source folders ---
 set_p_src() {
   echo
