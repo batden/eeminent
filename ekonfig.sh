@@ -178,6 +178,11 @@ do_tests() {
     mkdir -p "$HOME/.local/bin"
   fi
 
+  case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) export PATH="$HOME/.local/bin:$PATH" ;;
+  esac
+
   if [[ ! -d "$HOME/.cache/ebuilds" ]]; then
     mkdir -p "$HOME/.cache/ebuilds"
   fi
@@ -202,6 +207,9 @@ do_bsh_alias() {
     export CPPFLAGS=-I/usr/local/include
     export LDFLAGS=-L/usr/local/lib
     export PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
+
+    # Tweak user's path.
+    #export PATH="$HOME/.local/bin:$PATH"
 
     # Keyring service workaround for Enlightenment.
     # You also need to autostart some additional services at startup for this to work:
