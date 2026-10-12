@@ -125,7 +125,7 @@ build_essentials() {
   done
 }
 
-rebuid_essentials() {
+rebuild_essentials() {
   bin_deps_min
 
   for i in "${prog_mbs_min[@]}"; do
@@ -169,15 +169,11 @@ rebuid_essentials() {
   done
 }
 
-essentials_go() {
+build_essentials_go() {
   clear
   printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
 
   build_essentials
-
-  sudo mkdir -p /usr/share/wayland-sessions
-  sudo mv -f /usr/local/share/wayland-sessions/enlightenment-wayland.desktop \
-    /usr/share/wayland-sessions/enlightenment-wayland.desktop &>/dev/null
 
   if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     echo
@@ -193,6 +189,26 @@ essentials_go() {
     echo
     # If Enlightenment fails to start, relaunch the script and select option ???
     # After the build is complete, type exit, then go back to the login screen.
+  fi
+
+  exit 0
+}
+
+rebuild_essentials_go() {
+  clear
+  printf "\n$magenta_bright%s $off%s\n\n" "* REBUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
+
+  rebuild_essentials
+
+  if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    echo
+    cowsay -f www "Now log out of your existing session and press Ctrl+Alt+F3 to switch to tty3, \
+        then enter your credentials and type: enlightenment_start"
+    echo
+  else
+    echo
+    cowsay -f www "That's it. Now type: enlightenment_start"
+    echo
   fi
 
   exit 0
@@ -218,19 +234,19 @@ and_behold() {
     case "$usr_input" in
     1)
       do_tests
-      build_essentials
+      build_essentials_go
       ;;
     2)
       do_tests
-      build_all
+      build_all_go
       ;;
     3)
       do_test
-      rebuild_essentials
+      rebuild_essentials_go
       ;;
     4)
       do_test
-      rebuild_all
+      rebuild_all_go
       ;;
     5)
       source "$HOME"/.eeminent/expel.sh
