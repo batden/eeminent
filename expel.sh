@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # shellcheck disable=SC1091
 
 # This script will help you uninstall Enlightenment and related applications cleanly and safely.
