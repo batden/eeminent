@@ -237,16 +237,18 @@ and_behold() {
       build_essentials_go
       ;;
     2)
+    # source "$HOME"/.eeminent/embrace.sh
       do_tests
-      build_all_go
+      #build_all_go
       ;;
     3)
       do_test
       rebuild_essentials_go
       ;;
     4)
+     # source "$HOME"/.eeminent/embrace.sh
       do_test
-      rebuild_all_go
+      #rebuild_all_go
       ;;
     5)
       source "$HOME"/.eeminent/expel.sh
@@ -261,7 +263,6 @@ and_behold() {
     *)
       printf "\n$red_bright%s $off%s\n\n" "INVALID INPUT."
       exit 1
-
       ;;
     esac
   done
