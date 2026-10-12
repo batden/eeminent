@@ -208,9 +208,6 @@ do_bsh_alias() {
     export LDFLAGS=-L/usr/local/lib
     export PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
 
-    # Tweak user's path.
-    #export PATH="$HOME/.local/bin:$PATH"
-
     # Keyring service workaround for Enlightenment.
     # You also need to autostart some additional services at startup for this to work:
     # See the repository's wiki (Startup Applications) for more info.
