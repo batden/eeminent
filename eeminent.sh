@@ -210,7 +210,7 @@ rebuild_essentials_go() {
   rebuild_essentials
 
   echo
-  cowsay "Essential components rebuilt successfully."
+  printf "$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
 
   exit 0
 }
