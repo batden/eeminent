@@ -71,6 +71,15 @@ set_p_src() {
   cd "$esrcdir/enlighten"
 }
 
+# --- Ensure that Enlightenment system files are correctly installed ---
+mv_sysfiles() {
+  sudo mkdir -p /etc/enlightenment
+  sudo mv -f /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
+  sudo mv -f /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+  sudo mv -f /usr/local/share/xsessions/enlightenment.desktop \
+    /usr/share/xsessions/enlightenment.desktop
+}
+
 build_essentials() {
   do_bsh_alias
   bin_deps_min
@@ -176,6 +185,7 @@ build_essentials_go() {
   printf "\n$green_bright%s $off%s\n\n" "* BUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
 
   build_essentials
+  mv_sysfiles
 
   echo
   cowsay "Now log out of your existing session, then select Enlightenment on the login screen... \
