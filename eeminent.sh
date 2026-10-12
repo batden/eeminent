@@ -43,14 +43,15 @@ bin_deps_min() {
 cnt_dir_min() {
   count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
 
-  if [ ! -d efl ] || [ ! -d enlightenment ]; then
+  if [ ! -d efl ] || [ ! -d terminology ] || [ ! -d enlightenment ]; then
     err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
     exit 1
   fi
-  # Tip: You can try to download the missing file(s) manually (see clonefl or clonenl in EKONFIG.SH),
-  # then rerun the script and select option 1 again; or relaunch the script at a later time.
-  # In both cases, be sure to enter the same path for the Enlightenment source folders
-  # as you used before.
+  
+  # Tip: You can try downloading the missing file(s) manually (see the "Source repositories of
+  # Enlightenment programs" section in EKONFIG.SH), then rerun the script and select option 1 again.
+  # Alternatively, you can relaunch the script at a later time. In both cases, enter the same path
+  # for the Enlightenment source folders as before.
 
   case $count in
   3)
