@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC1091 disable=SC2034
+# shellcheck disable=SC1091 disable=SC2034 disable=SC2154
 
 # This script contains variables, functions, and tests used by the other scripts.
 
@@ -149,6 +149,42 @@ prog_mbs_min=(
   terminology
   enlightenment
 )
+
+# --- System checks ---
+do_tests() {
+
+  printf "\n\n$bold%s $off%s\n" "System checks..."
+
+  if systemd-detect-virt -q --container; then
+    printf "\n$red_bright%s $off%s\n\n" "EEMINENT IS NOT INTENDED FOR USE INSIDE CONTAINERS."
+    beep_exit
+    exit 1
+  fi
+
+  if [ "$distro" == resolute ]; then
+    printf "\n$green_bright%s $off%s\n\n" "Ubuntu ${distro^}... OK"
+    sleep 1
+  else
+    printf "\n$red_bright%s $off%s\n\n" "UNSUPPORTED OPERATING SYSTEM [ $(lsb_release -ds) ]."
+    beep_exit
+    exit 1
+  fi
+
+  if ! git ls-remote https://git.enlightenment.org/enlightenment/efl.git HEAD &>/dev/null; then
+    printf "\n$red_bright%s %s\n" "REMOTE HOST IS UNREACHABLE——TRY AGAIN LATER"
+    printf "$red_bright%s $off%s\n\n" "OR CHECK YOUR INTERNET CONNECTION."
+    beep_exit
+    exit 1
+  fi
+
+  if [[ ! -d "$HOME/.local/bin" ]]; then
+    mkdir -p "$HOME/.local/bin"
+  fi
+
+  if [[ ! -d "$HOME/.cache/ebuilds" ]]; then
+    mkdir -p "$HOME/.cache/ebuilds"
+  fi
+}
 
 # --- Create bash_aliases file ---
 do_bsh_alias() {
