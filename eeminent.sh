@@ -126,6 +126,8 @@ build_essentials() {
   $clonety
   $clonenl
 
+  cnt_dir_min
+
   for i in "${prog_mbs_min[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Building $i..."
