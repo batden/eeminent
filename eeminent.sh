@@ -189,7 +189,7 @@ build_essentials_go() {
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
   echo
-  cowsay "Now log out of your existing session, then select Enlightenment on the login screen... \
+  cowsay "Now log out of your existing session, then select Enlightenment (Wayland) on the login screen... \
     That's All Folks!"
 
   cp -f "$dldir/eeminent.sh" "$HOME/.local/bin"
