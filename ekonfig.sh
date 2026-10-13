@@ -75,6 +75,7 @@ cowsay
 doxygen
 libasound2-dev
 libavif-dev
+libbluetooth-dev
 libbz2-dev
 libconfig-dev
 libexif-dev
