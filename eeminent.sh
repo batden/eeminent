@@ -275,7 +275,7 @@ and_behold() {
     2)
     # source "$HOME"/.eeminent/embrace.sh
       do_tests
-      #build_all_go
+      #build_ecosystem
       ;;
     3)
       do_test
@@ -284,7 +284,7 @@ and_behold() {
     4)
       #source "$HOME"/.eeminent/embrace.sh
       do_test
-      #rebuild_all_go
+      #rebuild_ecosystem_go
       ;;
     5)
       #source "$HOME"/.eeminent/expel.sh
