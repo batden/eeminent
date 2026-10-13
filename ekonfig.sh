@@ -65,7 +65,8 @@ err_msg() {
   fi
 }
 
-deps_min=(
+deps=(
+bear
 build-essential
 ccache
 check
@@ -89,6 +90,7 @@ libheif-dev
 libibus-1.0-dev
 libinput-dev
 libjpeg-dev
+libjson-c-dev
 libjxl-dev
 liblua5.2-dev
 libopenjp2-7-dev
@@ -107,6 +109,7 @@ libsndfile1-dev
 libssl-dev
 libtiff-dev
 libudev-dev
+libudisks2-dev
 libunwind-dev
 libwebp-dev
 libx11-dev
