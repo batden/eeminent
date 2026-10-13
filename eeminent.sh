@@ -32,8 +32,8 @@ menu_slct() {
 }
 
 # --- Binary dependencies check ---
-bin_deps_min() {
-  if ! sudo apt install "${deps_min[@]}"; then
+bin_deps() {
+  if ! sudo apt install "${deps[@]}"; then
     err_msg "CONFLICTING OR MISSING DEB PACKAGES OR DPKG DATABASE IS LOCKED."
     exit 1
   fi
@@ -47,7 +47,7 @@ cnt_dir_min() {
     err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
     exit 1
   fi
-  
+
   # Tip: You can try downloading the missing file(s) manually (see the "Source repositories of
   # Enlightenment programs" section in EKONFIG.SH), then rerun the script and select option 1 again.
   # Alternatively, you can relaunch the script at a later time. In both cases, enter the same path
@@ -113,7 +113,7 @@ mv_sysfiles() {
 
 build_essentials() {
   do_bsh_alias
-  bin_deps_min
+  bin_deps
   set_p_src
 
   sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
@@ -168,7 +168,7 @@ build_essentials() {
 }
 
 rebuild_essentials() {
-  bin_deps_min
+  bin_deps
 
   cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
 
