@@ -146,7 +146,7 @@ clonepn="git clone https://git.enlightenment.org/enlightenment/enlightenment-mod
 clonepl="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-places.git"
 clonete="git clone https://github.com/dimmus/eflete.git"
 
-# --- Programs to be built using the Meson build system ---
+# --- Essential programs to be built using the Meson build system ---
 prog_mbs_min=(
   efl
   terminology
