@@ -15,15 +15,15 @@ menu_slct() {
   if [ "$is_einstl" == false ]; then
     printf "1 $green_bright%s $off%s\n\n" "Install essentials only"
     printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem"
-    printf "3 $magenta_dim%s $off%s\n\n" "(Update and rebuild essentials)"
-    printf "4 $blue_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
+    printf "3 $blue_dim%s $off%s\n\n" "(Update and rebuild essentials)"
+    printf "4 $magenta_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
     printf "5 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)"
     printf "6 $italic%s $off%s\n\n" "Quit the script"
   else
     printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
     printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
-    printf "3 $magenta_bright%s $off%s\n\n" "Update and rebuild essentials"
-    printf "4 $blue_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
+    printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials"
+    printf "4 $magenta_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
     printf "5 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs"
     printf "6 $italic%s $off%s\n\n" "Quit the script"
   fi
@@ -234,7 +234,7 @@ build_essentials_go() {
 
 rebuild_essentials_go() {
   clear
-  printf "\n$magenta_bright%s $off%s\n\n" "* REBUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
+  printf "\n$blue_bright%s $off%s\n\n" "* REBUILDING ESSENTIAL ENLIGHTENMENT COMPONENTS *"
 
   # Check for available updates of the script folder first.
   cd "$scrfldr" && git pull &>/dev/null
