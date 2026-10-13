@@ -5,7 +5,7 @@
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
 # necessary to enjoy the latest version of this unique environment.
 
-# --- Call the companion script ---
+# --- Call the companion scripts ---
 source "$HOME"/.eeminent/ekonfig.sh
 
 menu_slct() {
@@ -299,24 +299,24 @@ and_behold() {
       build_essentials_go
       ;;
     2)
-    # source "$HOME"/.eeminent/embrace.sh
+      source "$HOME"/.eeminent/embrace.sh
       do_tests
-      #build_ecosystem
+      build_all
       ;;
     3)
       do_test
       rebuild_essentials_go
       ;;
     4)
-      #source "$HOME"/.eeminent/embrace.sh
+      source "$HOME"/.eeminent/embrace.sh
       do_test
-      #rebuild_ecosystem_go
+      rebuild_all_go
       ;;
     5)
-      #source "$HOME"/.eeminent/expel.sh
-      #uninstall_enlighten
+      source "$HOME"/.eeminent/expel.sh
+      uninstall_enlighten
       printf "\n\n$red_bright%s $off%s\n\n" "Done."
-      #break
+      break
       ;;
     6)
       printf "\n$bold%s $off%s\n\n" "Bye!"
