@@ -201,7 +201,6 @@ prog_mbs_full=(
 
 # --- System checks ---
 do_tests() {
-
   printf "\n\n$bold%s $off%s\n" "System checks..."
 
   if systemd-detect-virt -q --container; then
@@ -209,7 +208,7 @@ do_tests() {
     exit 1
   fi
 
-  if [ "$distro" == resolute ]; then
+  if [[ "$distro" == "resolute" ]]; then
     printf "\n$green_bright%s $off%s\n\n" "Ubuntu ${distro^}... OK"
     sleep 1
   else
@@ -247,23 +246,23 @@ do_bsh_alias() {
     touch "$HOME/.bash_aliases"
   fi
 
-  cat >"$HOME/.bash_aliases" <<EOF
-    # Compiler and linker flags added by EKONFIG.SH
-    export CC="ccache gcc"
-    export CXX="ccache g++"
-    export USE_CCACHE=1
-    export CCACHE_COMPRESS=6
-    export CPPFLAGS=-I/usr/local/include
-    export LDFLAGS=-L/usr/local/lib
-    export PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
+  cat >"$HOME/.bash_aliases" <<'EOF'
+# Compiler and linker flags added by EKONFIG.SH
+export CC="ccache gcc"
+export CXX="ccache g++"
+export USE_CCACHE=1
+export CCACHE_COMPRESS=6
+export CPPFLAGS=-I/usr/local/include
+export LDFLAGS=-L/usr/local/lib
+export PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
 
-    # Keyring service workaround for Enlightenment.
-    # You also need to autostart some additional services at startup for this to work:
-    # See the repository's wiki (Startup Applications) for more info.
-    #
-    if printenv | grep -q 'XDG_CURRENT_DESKTOP=Enlightenment'; then
-      export SSH_AUTH_SOCK=/run/user/${UID}/keyring/ssh
-    fi
+# Keyring service workaround for Enlightenment.
+# You also need to autostart some additional services at startup for this to work:
+# See the repository's wiki (Startup Applications) for more info.
+#
+if printenv | grep -q 'XDG_CURRENT_DESKTOP=Enlightenment'; then
+  export SSH_AUTH_SOCK=/run/user/${UID}/keyring/ssh
+fi
 EOF
 
   . "$HOME/.bash_aliases"
