@@ -72,6 +72,9 @@ check
 cmake
 cowsay
 doxygen
+graphviz
+gstreamer1.0-plugins-bad
+gstreamer1.0-plugins-ugly
 libasound2-dev
 libavahi-client-dev
 libavif-dev
