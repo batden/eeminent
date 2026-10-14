@@ -163,3 +163,67 @@ build_all_go() {
 
   exit 0
 }
+
+rebuild_all_go() {
+for i in "${prog_mbs_full[@]}"; do
+    cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
+    printf "\n$bold%s $off%s\n\n" "Rebuilding $i..."
+
+    case $i in
+    efl)
+      meson setup --reconfigure build -Dbuildtype=release \
+        -Dnative-arch-optimization=true \
+        -Dfb=true \
+        -Dharfbuzz=true \
+        -Dlua-interpreter=lua \
+        -Delua=true \
+        -Dbindings=lua,cxx \
+        -Devas-loaders-disabler= \
+        -Dglib=true \
+        -Ddrm=true \
+        -Dwl=true \
+        -Dopengl=es-egl \
+        -Dbuild-tests=false \
+        -Ddocs=false \
+        -Dpipewire=true
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      meson setup --reconfigure build -Dbuildtype=release \
+        -Dwl=true
+      ninja -C build || mng_err
+      ;;
+    terminology)
+      meson setup --reconfigure build -Dbuildtype=release
+      ninja -C build
+      ;;
+    edi)
+      if [ ! -d "/usr/lib/llvm-11" ]; then
+        printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
+        printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+        sleep 1
+        meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
+        ninja -C build
+      else
+        meson setup --reconfigure build -Dbuildtype=release \
+          -Dlibclang=true \
+          -Dlibclang-headerdir=/usr/lib/llvm-11/include \
+          -Dlibclang-libdir=/usr/lib/llvm-11/lib
+        ninja -C build
+      fi
+      ;;
+    *)
+      meson setup --reconfigure build -Dbuildtype=release
+      ninja -C build
+      ;;
+    esac
+
+    $snin
+    sudo ldconfig
+  done
+
+  echo
+  printf "$green_bright%s $off%s\n\n" "Enlightenment components rebuilt successfully."
+
+  exit 0
+}
