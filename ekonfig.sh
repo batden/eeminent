@@ -76,13 +76,16 @@ libasound2-dev
 libavif-dev
 libbluetooth-dev
 libbz2-dev
+libblkid-dev
 libconfig-dev
+libddcutil-dev
 libexif-dev
 libfontconfig-dev
 libfribidi-dev
 libfreetype-dev
 libgif-dev
 libgles-dev
+libgraphviz-dev
 libgstreamer-plugins-base1.0-dev
 libgstreamer1.0-dev
 libharfbuzz-dev
@@ -93,6 +96,7 @@ libjpeg-dev
 libjson-c-dev
 libjxl-dev
 liblua5.2-dev
+liblz4-dev
 libopenjp2-7-dev
 libosmesa6-dev
 libpam0g-dev
@@ -110,6 +114,7 @@ libssl-dev
 libtiff-dev
 libudev-dev
 libudisks2-dev
+libunibreak-dev
 libunwind-dev
 libwebp-dev
 libx11-dev
