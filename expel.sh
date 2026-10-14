@@ -287,8 +287,20 @@ uninstall_enlighten() {
   clear
   printf "\n\n$red_bright%s $off%s\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP ENVIRONMENT *"
   sleep 1
-  printf "\n%s\n\n" "You will be prompted to answer some basic questions..."
-  sleep 2
+  read -r -t 12 -p "Are you sure you want to uninstall Enlightenment? [y/N] " answer
+  case $answer in
+  y | Y)
+  printf "\nLet's proceed with the uninstallation."
+    ;;
+  n | N)
+    printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
+    exit 0
+    ;;
+  *)
+    printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
+    exit 0
+    ;;
+  esac
 
   cd "$HOME"
   set_prog_rm
