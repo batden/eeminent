@@ -21,7 +21,6 @@ off="\e[0m"
 
 # --- Paths and aliases ---
 dldir=$(xdg-user-dir DOWNLOAD)
-#docdir=$(xdg-user-dir DOCUMENTS)
 scrfldr=$HOME/.eeminent
 rebasef="git config pull.rebase false"
 snin="sudo ninja -C build install"
