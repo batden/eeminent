@@ -1,6 +1,8 @@
 #!/bin/bash
 # shellcheck disable=SC1091 disable=SC2154 disable=SC2164
 
+# This script contains functions used by the other scripts.
+
 # Optional: Additional steps may be taken to achieve optimal results.
 # Please refer to the comments of the build_all() function.
 
