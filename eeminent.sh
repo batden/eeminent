@@ -301,10 +301,9 @@ and_behold() {
     2)
       source "$HOME"/.eeminent/embrace.sh
       do_tests
-      build_all
+      build_all_go
       ;;
     3)
-      do_test
       rebuild_essentials_go
       ;;
     4)
@@ -314,7 +313,6 @@ and_behold() {
       ;;
     5)
       source "$HOME"/.eeminent/embrace.sh
-      do_test
       rebuild_all_go
       ;;
     6)
