@@ -9,12 +9,6 @@
 source "$HOME"/.equivoke/ekonfig.sh
 
 # --- Enlightenment programs to be removed ---
-prog_rm_min=(
-  enlightenment
-  erminology
-  efl
-)
-
 prog_rm_max=(
   eflete
   enlightenment-module-places
@@ -30,6 +24,12 @@ prog_rm_max=(
   ephoto
   enlightenment
   terminology
+  efl
+)
+
+prog_rm_min=(
+  enlightenment
+  erminology
   efl
 )
 
