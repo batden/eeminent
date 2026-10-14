@@ -150,7 +150,9 @@ build_all_go() {
 
   cnt_dir_max
 
-  if pkg-config --exists efl && command -v terminology >/dev/null && command -v enlightenment >/dev/null; then
+  if pkg-config --exists efl \
+    && command -v terminology >/dev/null \
+    && command -v enlightenment >/dev/null; then
     rebuild_essentials_go
     build_alt
   else
