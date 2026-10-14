@@ -165,7 +165,11 @@ build_all_go() {
 }
 
 rebuild_all_go() {
-for i in "${prog_mbs_full[@]}"; do
+  clear
+  printf "\n\n$orange_bright%s $off%s\n\n" "* REBUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
+  bin_deps
+
+  for i in "${prog_mbs_full[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Rebuilding $i..."
 
@@ -199,8 +203,6 @@ for i in "${prog_mbs_full[@]}"; do
       ;;
     edi)
       if [ ! -d "/usr/lib/llvm-11" ]; then
-        printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
-        printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
         sleep 1
         meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
         ninja -C build
