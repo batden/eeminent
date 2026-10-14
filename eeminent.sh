@@ -49,20 +49,21 @@ cnt_dir_min() {
     err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
     exit 1
   fi
+
   # Tip: You can try downloading the missing file(s) manually (see the "Source repositories of
   # Enlightenment programs" section in EKONFIG.SH), then rerun the script and select option 1 again.
   # Alternatively, you can relaunch the script at a later time. In both cases, enter the same path
   # for the Enlightenment source folders as before.
 
   case $count in
-  3)
-    printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
-    sleep 2
-    ;;
-  *)
-    err_msg "OOPS! SOMETHING WENT WRONG."
-    exit 1
-    ;;
+    3)
+      printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
+      sleep 2
+      ;;
+    *)
+      err_msg "OOPS! SOMETHING WENT WRONG."
+      exit 1
+      ;;
   esac
 
   return 0
@@ -77,19 +78,19 @@ cnt_dir_max() {
   fi
 
   case $count in
-  15)
-    printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
-    sleep 2
-    ;;
-  0)
-    err_msg "OOPS! SOMETHING WENT WRONG."
-    exit 1
-    ;;
-  *)
-    printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 15 PROGRAMS HAVE BEEN DOWNLOADED!"
-    printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
-    sleep 10
-    ;;
+    15)
+      printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
+      sleep 2
+      ;;
+    0)
+      err_msg "OOPS! SOMETHING WENT WRONG."
+      exit 1
+      ;;
+    *)
+      printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 15 PROGRAMS HAVE BEEN DOWNLOADED!"
+      printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
+      sleep 10
+      ;;
   esac
 
   return 0
