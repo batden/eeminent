@@ -59,14 +59,9 @@ cnt_dir_min() {
     printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
     sleep 2
     ;;
-  0)
+  *)
     err_msg "OOPS! SOMETHING WENT WRONG."
     exit 1
-    ;;
-  *)
-    printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 3 PROGRAMS HAVE BEEN DOWNLOADED!"
-    printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
-    sleep 10
     ;;
   esac
 
