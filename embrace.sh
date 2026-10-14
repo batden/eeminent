@@ -8,10 +8,10 @@
 source "$HOME"/.eeminent/ekonfig.sh
 
 build_all() {
-# Fetch EDI's additional dependencies before executing the script?
-# If you need libclang support in edi, you will also need to install
-# the packages listed in the link below:
-# https://gist.github.com/batden/99a7ebdd5ba9d9e83b2446ab5f05f3dc
+  # Fetch EDI's additional dependencies before executing the script?
+  # If you need libclang support in edi, you will also need to install
+  # the packages listed in the link below:
+  # https://gist.github.com/batden/99a7ebdd5ba9d9e83b2446ab5f05f3dc
 
   sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
   sudo ldconfig
@@ -21,52 +21,52 @@ build_all() {
     printf "\n$bold%s $off%s\n\n" "Building $i..."
 
     case $i in
-    efl)
-      meson setup build -Dbuildtype=release \
-        -Dnative-arch-optimization=true \
-        -Dfb=true \
-        -Dharfbuzz=true \
-        -Dlua-interpreter=lua \
-        -Delua=true \
-        -Dbindings=lua,cxx \
-        -Devas-loaders-disabler= \
-        -Dglib=true \
-        -Ddrm=true \
-        -Dwl=true \
-        -Dopengl=es-egl \
-        -Dbuild-tests=false \
-        -Ddocs=false \
-        -Dpipewire=true
-      ninja -C build || mng_err
-      ;;
-    enlightenment)
-      meson setup build -Dbuildtype=release \
-        -Dwl=true
-      ninja -C build || mng_err
-      ;;
-    terminology)
-      meson setup build -Dbuildtype=release
-      ninja -C build
-      ;;
-    edi)
-      if [ ! -d "/usr/lib/llvm-11" ]; then
-        printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
-        printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
-        sleep 1
-        meson setup build -Dbuildtype=release -Dlibclang=false
-        ninja -C build
-      else
+      efl)
         meson setup build -Dbuildtype=release \
-          -Dlibclang=true \
-          -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-          -Dlibclang-libdir=/usr/lib/llvm-11/lib
+          -Dnative-arch-optimization=true \
+          -Dfb=true \
+          -Dharfbuzz=true \
+          -Dlua-interpreter=lua \
+          -Delua=true \
+          -Dbindings=lua,cxx \
+          -Devas-loaders-disabler= \
+          -Dglib=true \
+          -Ddrm=true \
+          -Dwl=true \
+          -Dopengl=es-egl \
+          -Dbuild-tests=false \
+          -Ddocs=false \
+          -Dpipewire=true
+        ninja -C build || mng_err
+        ;;
+      enlightenment)
+        meson setup build -Dbuildtype=release \
+          -Dwl=true
+        ninja -C build || mng_err
+        ;;
+      terminology)
+        meson setup build -Dbuildtype=release
         ninja -C build
-      fi
-      ;;
-    *)
-      meson setup build -Dbuildtype=release
-      ninja -C build
-      ;;
+        ;;
+      edi)
+        if [ ! -d "/usr/lib/llvm-11" ]; then
+          printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
+          printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+          sleep 1
+          meson setup build -Dbuildtype=release -Dlibclang=false
+          ninja -C build
+        else
+          meson setup build -Dbuildtype=release \
+            -Dlibclang=true \
+            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
+            -Dlibclang-libdir=/usr/lib/llvm-11/lib
+          ninja -C build
+        fi
+        ;;
+      *)
+        meson setup build -Dbuildtype=release
+        ninja -C build
+        ;;
     esac
 
     $snin
@@ -75,36 +75,35 @@ build_all() {
 }
 
 build_alt() {
-
-for i in "${prog_mbs_alt[@]}"; do
+  for i in "${prog_mbs_alt[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Building $i..."
 
     case $i in
-    edi)
-      if [ ! -d "/usr/lib/llvm-11" ]; then
-        printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
-        printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
-        sleep 1
-        meson setup build -Dbuildtype=release -Dlibclang=false
+      edi)
+        if [ ! -d "/usr/lib/llvm-11" ]; then
+          printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
+          printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+          sleep 1
+          meson setup build -Dbuildtype=release -Dlibclang=false
+          ninja -C build
+        else
+          meson setup build -Dbuildtype=release \
+            -Dlibclang=true \
+            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
+            -Dlibclang-libdir=/usr/lib/llvm-11/lib
+          ninja -C build
+        fi
+        ;;
+      *)
+        meson setup build -Dbuildtype=release
         ninja -C build
-      else
-        meson setup build -Dbuildtype=release \
-          -Dlibclang=true \
-          -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-          -Dlibclang-libdir=/usr/lib/llvm-11/lib
-        ninja -C build
-      fi
-      ;;
-    *)
-      meson setup build -Dbuildtype=release
-      ninja -C build
-      ;;
+        ;;
     esac
 
     $snin
     sudo ldconfig
-done
+  done
 }
 
 build_all_go() {
@@ -144,6 +143,7 @@ build_all_go() {
   $clonepn
   echo
   $clonepl
+
   printf "\n\n$bold%s $off%s\n\n" "Fetching source code from Dimmus' git repository..."
   $clonete
   echo
@@ -174,50 +174,50 @@ rebuild_all_go() {
     printf "\n$bold%s $off%s\n\n" "Rebuilding $i..."
 
     case $i in
-    efl)
-      meson setup --reconfigure build -Dbuildtype=release \
-        -Dnative-arch-optimization=true \
-        -Dfb=true \
-        -Dharfbuzz=true \
-        -Dlua-interpreter=lua \
-        -Delua=true \
-        -Dbindings=lua,cxx \
-        -Devas-loaders-disabler= \
-        -Dglib=true \
-        -Ddrm=true \
-        -Dwl=true \
-        -Dopengl=es-egl \
-        -Dbuild-tests=false \
-        -Ddocs=false \
-        -Dpipewire=true
-      ninja -C build || mng_err
-      ;;
-    enlightenment)
-      meson setup --reconfigure build -Dbuildtype=release \
-        -Dwl=true
-      ninja -C build || mng_err
-      ;;
-    terminology)
-      meson setup --reconfigure build -Dbuildtype=release
-      ninja -C build
-      ;;
-    edi)
-      if [ ! -d "/usr/lib/llvm-11" ]; then
-        sleep 1
-        meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
-        ninja -C build
-      else
+      efl)
         meson setup --reconfigure build -Dbuildtype=release \
-          -Dlibclang=true \
-          -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-          -Dlibclang-libdir=/usr/lib/llvm-11/lib
+          -Dnative-arch-optimization=true \
+          -Dfb=true \
+          -Dharfbuzz=true \
+          -Dlua-interpreter=lua \
+          -Delua=true \
+          -Dbindings=lua,cxx \
+          -Devas-loaders-disabler= \
+          -Dglib=true \
+          -Ddrm=true \
+          -Dwl=true \
+          -Dopengl=es-egl \
+          -Dbuild-tests=false \
+          -Ddocs=false \
+          -Dpipewire=true
+        ninja -C build || mng_err
+        ;;
+      enlightenment)
+        meson setup --reconfigure build -Dbuildtype=release \
+          -Dwl=true
+        ninja -C build || mng_err
+        ;;
+      terminology)
+        meson setup --reconfigure build -Dbuildtype=release
         ninja -C build
-      fi
-      ;;
-    *)
-      meson setup --reconfigure build -Dbuildtype=release
-      ninja -C build
-      ;;
+        ;;
+      edi)
+        if [ ! -d "/usr/lib/llvm-11" ]; then
+          sleep 1
+          meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
+          ninja -C build
+        else
+          meson setup --reconfigure build -Dbuildtype=release \
+            -Dlibclang=true \
+            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
+            -Dlibclang-libdir=/usr/lib/llvm-11/lib
+          ninja -C build
+        fi
+        ;;
+      *)
+        meson setup --reconfigure build -Dbuildtype=release
+        ninja -C build
+        ;;
     esac
 
     $snin
