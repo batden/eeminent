@@ -101,7 +101,7 @@ set_p_src() {
 
   # Do not append a trailing slash (/) to the end of the path prefix.
   read -r -p "Please enter a path for the Enlightenment source folders \
-  (e.g. /home/$LOGNAME/Documents or /home/$LOGNAME/testing): " mypath
+(e.g. /home/$LOGNAME/Documents or /home/$LOGNAME/testing): " mypath
 
   if [[ ! "$mypath" =~ ^/home/$LOGNAME.* ]]; then
     err_msg "PATH MUST BE WITHIN YOUR HOME DIRECTORY (/home/$LOGNAME)"
@@ -156,33 +156,33 @@ build_essentials() {
     printf "\n$bold%s $off%s\n\n" "Building $i..."
 
     case $i in
-    efl)
-      meson setup build -Dbuildtype=release \
-        -Dnative-arch-optimization=true \
-        -Dfb=true \
-        -Dharfbuzz=true \
-        -Dlua-interpreter=lua \
-        -Delua=true \
-        -Dbindings=lua,cxx \
-        -Devas-loaders-disabler= \
-        -Dglib=true \
-        -Ddrm=true \
-        -Dwl=true \
-        -Dopengl=es-egl \
-        -Dbuild-tests=false \
-        -Ddocs=false \
-        -Dpipewire=true
-      ninja -C build || mng_err
-      ;;
-    enlightenment)
-      meson setup build -Dbuildtype=release \
-        -Dwl=true
-      ninja -C build || mng_err
-      ;;
-    terminology)
-      meson setup build -Dbuildtype=release
-      ninja -C build
-      ;;
+      efl)
+        meson setup build -Dbuildtype=release \
+          -Dnative-arch-optimization=true \
+          -Dfb=true \
+          -Dharfbuzz=true \
+          -Dlua-interpreter=lua \
+          -Delua=true \
+          -Dbindings=lua,cxx \
+          -Devas-loaders-disabler= \
+          -Dglib=true \
+          -Ddrm=true \
+          -Dwl=true \
+          -Dopengl=es-egl \
+          -Dbuild-tests=false \
+          -Ddocs=false \
+          -Dpipewire=true
+        ninja -C build || mng_err
+        ;;
+      enlightenment)
+        meson setup build -Dbuildtype=release \
+          -Dwl=true
+        ninja -C build || mng_err
+        ;;
+      terminology)
+        meson setup build -Dbuildtype=release
+        ninja -C build
+        ;;
     esac
 
     $snin
@@ -199,34 +199,34 @@ rebuild_essentials() {
     git reset --hard &>/dev/null
     $rebasef && git pull
 
-    case $i in
-    efl)
-    meson setup --reconfigure build -Dbuildtype=release \
-        -Dnative-arch-optimization=true \
-        -Dfb=true \
-        -Dharfbuzz=true \
-        -Dlua-interpreter=lua \
-        -Delua=true \
-        -Dbindings=lua,cxx \
-        -Devas-loaders-disabler= \
-        -Dglib=true \
-        -Ddrm=true \
-        -Dwl=true \
-        -Dopengl=es-egl \
-        -Dbuild-tests=false \
-        -Ddocs=false \
-        -Dpipewire=true
-      ninja -C build || mng_err
-      ;;
-    enlightenment)
-    meson setup --reconfigure build -Dbuildtype=release \
-        -Dwl=true
-      ninja -C build || mng_err
-      ;;
-    terminology)
-    meson setup --reconfigure build -Dbuildtype=release
-      ninja -C build || mng_err
-      ;;
+    case "$i" in
+      efl)
+        meson setup --reconfigure build -Dbuildtype=release \
+          -Dnative-arch-optimization=true \
+          -Dfb=true \
+          -Dharfbuzz=true \
+          -Dlua-interpreter=lua \
+          -Delua=true \
+          -Dbindings=lua,cxx \
+          -Devas-loaders-disabler= \
+          -Dglib=true \
+          -Ddrm=true \
+          -Dwl=true \
+          -Dopengl=es-egl \
+          -Dbuild-tests=false \
+          -Ddocs=false \
+          -Dpipewire=true
+        ninja -C build || mng_err
+        ;;
+      enlightenment)
+        meson setup --reconfigure build -Dbuildtype=release \
+          -Dwl=true
+        ninja -C build || mng_err
+        ;;
+      terminology)
+        meson setup --reconfigure build -Dbuildtype=release
+        ninja -C build || mng_err
+        ;;
     esac
 
     $snin
@@ -246,7 +246,7 @@ build_essentials_go() {
 
   echo
   cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \
-  on the login screen... That's All Folks!"
+    on the login screen... That's All Folks!"
 
   cp -f "$dldir/eeminent.sh" "$HOME/.local/bin"
 
@@ -259,7 +259,7 @@ rebuild_essentials_go() {
 
   # Check for available updates of the script folder first.
   cd "$scrfldr" && git pull &>/dev/null
-  cp -f eeminent.sh "$HOME/.local/bin"
+  cp -f "$scrfldr/eeminent.sh" "$HOME/.local/bin"
   chmod +x "$HOME/.local/bin/eeminent.sh"
   sleep 1
 
@@ -289,41 +289,41 @@ lo() {
 and_behold() {
   while true; do
     case "$usr_input" in
-    1)
-      do_tests
-      build_essentials_go
-      ;;
-    2)
-      source "$HOME"/.eeminent/embrace.sh
-      do_tests
-      build_all_go
-      ;;
-    3)
-      rebuild_essentials_go
-      ;;
-    4)
-      source "$HOME"/.eeminent/embrace.sh
-      do_test
-      build_all_go
-      ;;
-    5)
-      source "$HOME"/.eeminent/embrace.sh
-      rebuild_all_go
-      ;;
-    6)
-      source "$HOME"/.eeminent/expel.sh
-      uninstall_enlighten
-      printf "\n\n$red_bright%s $off%s\n\n" "Done."
-      break
-      ;;
-    7)
-      printf "\n$bold%s $off%s\n\n" "Bye!"
-      exit 0
-      ;;
-    *)
-      printf "\n$red_bright%s $off%s\n\n" "INVALID INPUT."
-      exit 1
-      ;;
+      1)
+        do_tests
+        build_essentials_go
+        ;;
+      2)
+        source "$HOME/.eeminent/embrace.sh"
+        do_tests
+        build_all_go
+        ;;
+      3)
+        rebuild_essentials_go
+        ;;
+      4)
+        source "$HOME/.eeminent/embrace.sh"
+        do_test
+        build_all_go
+        ;;
+      5)
+        source "$HOME/.eeminent/embrace.sh"
+        rebuild_all_go
+        ;;
+      6)
+        source "$HOME/.eeminent/expel.sh"
+        uninstall_enlighten
+        printf "\n\n$red_bright%s $off%s\n\n" "Done."
+        break
+        ;;
+      7)
+        printf "\n$bold%s $off%s\n\n" "Bye!"
+        exit 0
+        ;;
+      *)
+        printf "\n$red_bright%s $off%s\n\n" "INVALID INPUT."
+        exit 1
+        ;;
     esac
   done
 
