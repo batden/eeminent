@@ -153,19 +153,10 @@ build_all_go() {
   if pkg-config --exists efl && command -v terminology >/dev/null && command -v enlightenment >/dev/null; then
     rebuild_essentials_go
     build_alt
-    #build_list=("${prog_mbs_alt[@]}")
   else
     build_all
     mv_sysfiles
-    #build_list=("${prog_mbs_full[@]}")
   fi
-
-  # for i in "${build_list[@]}"; do
-  #   cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
-  #   printf "\n$bold%s $off%s\n\n" "Building $i..."
-  #   git reset --hard &>/dev/null
-  #   $rebasef && git pull
-  # done
 
   echo
   printf "$green_bright%s $off%s\n\n" "Enlightenment components built successfully."
