@@ -91,6 +91,7 @@ libgstreamer-plugins-base1.0-dev
 libgstreamer1.0-dev
 libharfbuzz-dev
 libheif-dev
+libi2c-dev
 libibus-1.0-dev
 libinput-dev
 libinput-tools
