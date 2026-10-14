@@ -1,5 +1,5 @@
-#!/bin/bash#!/bin/bash
-# shellcheck disable=SC1091 disable=SC2154 disable=SC2164
+#!/bin/bash
+# shellcheck disable=SC1091,SC2154,SC2164
 
 # This script will help you uninstall Enlightenment and related applications cleanly and safely.
 # Note that the binary dependencies (dev packages) are preserved for system consistency.
@@ -204,7 +204,7 @@ del_list() {
 }
 
 # Remove translation files.
-rm_mofiles_max () {
+rm_mofiles_max() {
   if [ -d /usr/local/share/locale ]; then
     find /usr/local/share/locale -name "LC_MESSAGES" -type d 2>/dev/null |
       while read -r i; do
@@ -218,7 +218,7 @@ rm_mofiles_max () {
   fi
 }
 
-rm_mofiles_min () {
+rm_mofiles_min() {
   if [ -d /usr/local/share/locale ]; then
     find /usr/local/share/locale -name "LC_MESSAGES" -type d 2>/dev/null |
       while read -r i; do
@@ -245,19 +245,19 @@ final_stp() {
   if [ -f "$HOME"/.bash_aliases ]; then
     read -r -t 12 -p "Remove the .bash_aliases file? [Y/n] " answer
     case $answer in
-    y | Y)
-      rm -rf "$HOME"/.bash_aliases && source "$HOME"/.bashrc
-      sleep 1
-      ;;
-    n | N)
-      printf "\n$italic%s $off%s\n\n" "(do not delete .bash_aliases... OK)"
-      sleep 1
-      ;;
-    *)
-      echo
-      rm -rf "$HOME"/.bash_aliases && source "$HOME"/.bashrc
-      sleep 1
-      ;;
+      y | Y)
+        rm -rf "$HOME"/.bash_aliases && source "$HOME"/.bashrc
+        sleep 1
+        ;;
+      n | N)
+        printf "\n$italic%s $off%s\n\n" "(do not delete .bash_aliases... OK)"
+        sleep 1
+        ;;
+      *)
+        echo
+        rm -rf "$HOME"/.bash_aliases && source "$HOME"/.bashrc
+        sleep 1
+        ;;
     esac
   fi
 
@@ -289,17 +289,17 @@ uninstall_enlighten() {
   sleep 1
   read -r -t 12 -p "Are you sure you want to uninstall Enlightenment? [y/N] " answer
   case $answer in
-  y | Y)
-    printf "\nOkay, let's proceed with the uninstallation."
-    ;;
-  n | N)
-    printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
-    exit 0
-    ;;
-  *)
-    printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
-    exit 0
-    ;;
+    y | Y)
+      printf "\nOkay, let's proceed with the uninstallation."
+      ;;
+    n | N)
+      printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
+      exit 0
+      ;;
+    *)
+      printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
+      exit 0
+      ;;
   esac
 
   cd "$HOME"
