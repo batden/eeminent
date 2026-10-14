@@ -22,8 +22,8 @@ menu_slct() {
   else
     printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
     printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
-    printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials"
-    printf "4 $magenta_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
+    printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only"
+    printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem"
     printf "5 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs"
     printf "6 $italic%s $off%s\n\n" "Quit the script"
   fi
@@ -310,7 +310,7 @@ and_behold() {
     4)
       source "$HOME"/.eeminent/embrace.sh
       do_test
-      rebuild_all_go
+      build_all_go
       ;;
     5)
       source "$HOME"/.eeminent/expel.sh
