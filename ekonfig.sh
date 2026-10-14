@@ -120,12 +120,14 @@ libxdamage-dev
 libxinerama-dev
 libxkbcommon-dev
 libxkbcommon-x11-dev
+lxmenu-data
 libxrandr-dev
 libxss-dev
 libxtst-dev
 meson
 ninja-build
 systemd-dev
+valgrind
 zlib1g-dev
 )
 
