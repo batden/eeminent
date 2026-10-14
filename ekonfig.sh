@@ -93,6 +93,7 @@ libharfbuzz-dev
 libheif-dev
 libibus-1.0-dev
 libinput-dev
+libinput-tools
 libjpeg-dev
 libjson-c-dev
 libjxl-dev
