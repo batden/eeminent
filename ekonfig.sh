@@ -73,6 +73,7 @@ cmake
 cowsay
 doxygen
 libasound2-dev
+libavahi-client-dev
 libavif-dev
 libbluetooth-dev
 libbz2-dev
