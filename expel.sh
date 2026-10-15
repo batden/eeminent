@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC1091,SC2154,SC2164
+# shellcheck disable=SC1091 disable=SC2154 disable=SC2164
 
 # This script will uninstall Enlightenment and related applications cleanly and safely.
 # Note that the binary dependencies, mainly development packages, are preserved for
