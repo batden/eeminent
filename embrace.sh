@@ -209,13 +209,13 @@ rebuild_all_go() {
         ninja -C build
         ;;
       edi)
+        sudo chown "$USER" build/.ninja*
+
         if [ ! -d "/usr/lib/llvm-11" ]; then
           sleep 1
-          sudo chown "$USER" build/.ninja*
           meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
           ninja -C build
         else
-          sudo chown "$USER" build/.ninja*
           meson setup --reconfigure build -Dbuildtype=release \
             -Dlibclang=true \
             -Dlibclang-headerdir=/usr/lib/llvm-11/include \
