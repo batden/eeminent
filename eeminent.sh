@@ -313,7 +313,7 @@ and_behold() {
         ;;
       4)
         source "$HOME/.eeminent/embrace.sh"
-        do_test
+        do_tests
         build_all_go
         ;;
       5)
