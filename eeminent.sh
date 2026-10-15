@@ -8,6 +8,15 @@
 # --- Call the companion scripts ---
 source "$HOME"/.eeminent/ekonfig.sh
 
+# ---  Menu hints and prompts ---
+# 1: Install core programs. Recommended for users who discover the environment.
+# 2: Install the whole Enlightenment environment in one swipe.
+# 3: Update and rebuild core programs.
+# 4: Update core programs and build the rest of the environment for a full experience.
+# 5: Update and rebuild the whole environment.
+# 6: Help you uninstall the Enlightenment ecosystem completely.
+# 7: Exit the script (same thing as pressing Ctrl+C).
+
 menu_slct() {
   is_einstl=$1
 
