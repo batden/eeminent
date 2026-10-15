@@ -145,11 +145,11 @@ del_list() {
   sudo rm -rf wayland-sessions*
 
   cd /usr/local/share/applications
-  sudo sed -i '/enlightenment_filemanager/d' mimeinfo.cache &>/dev/null
-  sudo sed -i '/ecrire/d' mimeinfo.cache &>/dev/null
-  sudo sed -i '/entice/d' mimeinfo.cache &>/dev/null
-  sudo sed -i '/ephoto/d' mimeinfo.cache &>/dev/null
-  sudo sed -i '/rage/d' mimeinfo.cache &>/dev/null
+  sudo sed -i '/enlightenment_filemanager/d' mimeinfo.cache
+  sudo sed -i '/ecrire/d' mimeinfo.cache
+  sudo sed -i '/entice/d' mimeinfo.cache
+  sudo sed -i '/ephoto/d' mimeinfo.cache
+  sudo sed -i '/rage/d' mimeinfo.cache
   sudo rm -rf enlightenment_paledit.desktop
   sudo rm -rf evisum_cpu.desktop
   sudo rm -rf evisum_mem.desktop
@@ -171,9 +171,6 @@ del_list() {
   sudo rm -rf org.enlightenment.Ethumb.service
 
   cd /usr/share/wayland-sessions
-  sudo rm -rf enlightenment.desktop
-
-  cd /usr/share/xsessions
   sudo rm -rf enlightenment.desktop
 
   cd "$HOME"
