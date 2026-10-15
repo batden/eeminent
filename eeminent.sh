@@ -211,6 +211,7 @@ rebuild_essentials() {
 
     case "$i" in
       efl)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release \
           -Dnative-arch-optimization=true \
           -Dfb=true \
@@ -229,11 +230,13 @@ rebuild_essentials() {
         ninja -C build || mng_err
         ;;
       enlightenment)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release \
           -Dwl=true
         ninja -C build || mng_err
         ;;
       terminology)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release
         ninja -C build || mng_err
         ;;
