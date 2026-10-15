@@ -14,7 +14,7 @@ source "$HOME"/.eeminent/ekonfig.sh
 # 3: Update and rebuild core programs.
 # 4: Update the core programs and build the rest of the environment for a full experience.
 # 5: Update and rebuild the entire environment.
-# 6: Uninstall the entire Enlightenment ecosystem.
+# 6: Uninstall everything related to Enlightenment.
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
 menu_slct() {
