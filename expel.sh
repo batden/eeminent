@@ -291,7 +291,7 @@ uninstall_enlighten() {
   read -r -t 12 -p "Are you sure you want to uninstall Enlightenment? [y/N] " answer
   case $answer in
     y | Y)
-      printf "\nOkay, let's proceed with the uninstallation."
+      printf "\nOkay, let's proceed with the uninstallation.\n\n"
       ;;
     n | N)
       printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
