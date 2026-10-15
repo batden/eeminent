@@ -1,7 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC1091 disable=SC2154 disable=SC2164
 
-# EEMINENT.SH only supports Resolute Raccoon. It does not support other ubuntu releases or
+# EEMINENT.SH only supports Resolute Raccoon. It does not support other Ubuntu releases or
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
 # necessary to enjoy the latest version of this unique environment.
 
