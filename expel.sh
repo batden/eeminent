@@ -2,8 +2,8 @@
 # shellcheck disable=SC1091,SC2154,SC2164
 
 # This script will uninstall Enlightenment and related applications cleanly and safely.
-# Note that the binary dependencies (dev packages) are preserved for system consistency.
-# There is no safe way to remove them automatically, without close supervision by the user.
+# Note that the binary dependencies (dev packages essentially) are preserved for system consistency.
+# It is not possible to remove them automatically without close supervision by the user.
 
 # --- Call the companion script ---
 source "$HOME"/.equivoke/ekonfig.sh
