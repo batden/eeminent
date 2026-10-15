@@ -179,6 +179,7 @@ rebuild_all_go() {
 
     case $i in
       efl)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release \
           -Dnative-arch-optimization=true \
           -Dfb=true \
@@ -197,20 +198,24 @@ rebuild_all_go() {
         ninja -C build || mng_err
         ;;
       enlightenment)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release \
           -Dwl=true
         ninja -C build || mng_err
         ;;
       terminology)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release
         ninja -C build
         ;;
       edi)
         if [ ! -d "/usr/lib/llvm-11" ]; then
           sleep 1
+          sudo chown "$USER" build/.ninja*
           meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
           ninja -C build
         else
+          sudo chown "$USER" build/.ninja*
           meson setup --reconfigure build -Dbuildtype=release \
             -Dlibclang=true \
             -Dlibclang-headerdir=/usr/lib/llvm-11/include \
@@ -219,6 +224,7 @@ rebuild_all_go() {
         fi
         ;;
       *)
+        sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release
         ninja -C build
         ;;
