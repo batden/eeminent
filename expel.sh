@@ -286,7 +286,7 @@ uninstall_enlighten() {
   esrcdir=$(cat "$HOME"/.cache/ebuilds/storepath)
 
   clear
-  printf "\n\n$red_bright%s $off%s\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP ENVIRONMENT *"
+  printf "\n\n$red_bright%s $off%s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP ENVIRONMENT *"
   sleep 1
   read -r -t 12 -p "Are you sure you want to uninstall Enlightenment? [y/N] " answer
   case $answer in
