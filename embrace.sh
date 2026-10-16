@@ -123,6 +123,20 @@ build_alt() {
 clear
 printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
 
+# --- Source repositories of Enlightenment programs ---
+cloneph="git clone https://git.enlightenment.org/enlightenment/ephoto.git"
+clonerg="git clone https://git.enlightenment.org/enlightenment/rage.git"
+clonevi="git clone https://git.enlightenment.org/enlightenment/evisum.git"
+clonexp="git clone https://git.enlightenment.org/enlightenment/express.git"
+clonecr="git clone https://git.enlightenment.org/enlightenment/ecrire.git"
+cloneve="git clone https://git.enlightenment.org/enlightenment/enventor.git"
+clonedi="git clone https://git.enlightenment.org/enlightenment/edi.git"
+clonent="git clone https://git.enlightenment.org/vtorri/entice.git"
+cloneft="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-forecasts.git"
+clonepn="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-penguins.git"
+clonepl="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-places.git"
+clonete="git clone https://github.com/dimmus/eflete.git"
+
   for i in "${prog_mbs_alt[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Building $i..."
