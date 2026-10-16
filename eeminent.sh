@@ -156,8 +156,11 @@ build_essentials() {
 
   printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
   $clonefl
+  echo
   $clonety
+  echo
   $clonenl
+  echo
 
   cnt_dir_min
 
