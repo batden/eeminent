@@ -155,9 +155,9 @@ printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
 }
 
 build_all_go() {
-if pkg-config --exists efl \
-    && command -v terminology >/dev/null \
-    && command -v enlightenment >/dev/null; then
+  if pkg-config --exists efl \
+      && command -v terminology >/dev/null \
+      && command -v enlightenment >/dev/null; then
     rebuild_essentials_go && build_alt
   else
     build_all
@@ -168,7 +168,7 @@ if pkg-config --exists efl \
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
   # Note: Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
-  # to your Gnome Desktop, you can safely delete them if it bothers you.
+  # to your Gnome Desktop; you can safely delete them if they bother you.
 
   echo
   cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \
