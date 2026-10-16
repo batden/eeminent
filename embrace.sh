@@ -120,22 +120,24 @@ build_all() {
 }
 
 build_alt() {
-clear
-printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
+  clear
+  printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
 
-# --- Source repositories of Enlightenment programs ---
-cloneph="git clone https://git.enlightenment.org/enlightenment/ephoto.git"
-clonerg="git clone https://git.enlightenment.org/enlightenment/rage.git"
-clonevi="git clone https://git.enlightenment.org/enlightenment/evisum.git"
-clonexp="git clone https://git.enlightenment.org/enlightenment/express.git"
-clonecr="git clone https://git.enlightenment.org/enlightenment/ecrire.git"
-cloneve="git clone https://git.enlightenment.org/enlightenment/enventor.git"
-clonedi="git clone https://git.enlightenment.org/enlightenment/edi.git"
-clonent="git clone https://git.enlightenment.org/vtorri/entice.git"
-cloneft="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-forecasts.git"
-clonepn="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-penguins.git"
-clonepl="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-places.git"
-clonete="git clone https://github.com/dimmus/eflete.git"
+  # --- Source repositories of Enlightenment programs ---
+  cloneph="git clone https://git.enlightenment.org/enlightenment/ephoto.git"
+  clonerg="git clone https://git.enlightenment.org/enlightenment/rage.git"
+  clonevi="git clone https://git.enlightenment.org/enlightenment/evisum.git"
+  clonexp="git clone https://git.enlightenment.org/enlightenment/express.git"
+  clonecr="git clone https://git.enlightenment.org/enlightenment/ecrire.git"
+  cloneve="git clone https://git.enlightenment.org/enlightenment/enventor.git"
+  clonedi="git clone https://git.enlightenment.org/enlightenment/edi.git"
+  clonent="git clone https://git.enlightenment.org/vtorri/entice.git"
+  cloneft="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-forecasts.git"
+  clonepn="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-penguins.git"
+  clonepl="git clone https://git.enlightenment.org/enlightenment/enlightenment-module-places.git"
+  clonete="git clone https://github.com/dimmus/eflete.git"
+
+  cnt_dir_alt
 
   for i in "${prog_mbs_alt[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
@@ -144,8 +146,10 @@ clonete="git clone https://github.com/dimmus/eflete.git"
     case $i in
       edi)
         if [ ! -d "/usr/lib/llvm-11" ]; then
-          printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
-          printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+          printf "\n$yellow_bright%s %s\n" \
+            "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
+          printf "\n$yellow_bright%s $off%s\n\n" \
+            "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
           sleep 1
           meson setup build -Dbuildtype=release -Dlibclang=false
           ninja -C build

@@ -86,6 +86,28 @@ cnt_dir_min() {
   return 0
 }
 
+cnt_dir_alt() {
+  count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+  case $count in
+    11)
+      printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
+      sleep 2
+      ;;
+    0)
+      err_msg "OOPS! SOMETHING WENT WRONG."
+      exit 1
+      ;;
+    *)
+      printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 11 PROGRAMS HAVE BEEN DOWNLOADED!"
+      printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
+      sleep 10
+      ;;
+  esac
+
+  return 0
+}
+
 cnt_dir_max() {
   count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
 
