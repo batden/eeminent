@@ -263,6 +263,7 @@ build_essentials_go() {
   echo
   cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \
     on the login screen... That's All Folks!"
+  echo
 
   cp -f "$dldir/eeminent.sh" "$HOME/.local/bin"
 

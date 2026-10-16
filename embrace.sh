@@ -162,8 +162,18 @@ build_all_go() {
     mv_sysfiles
   fi
 
+  # This will protect the file from accidental deletion.
+  sudo chattr +i "$HOME/.cache/ebuilds/storepath"
+
+  # Note: Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
+  # to your Gnome Desktop, you can safely delete them if it bothers you.
+
   echo
-  printf "$green_bright%s $off%s\n\n" "Enlightenment components built successfully."
+  cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \
+    on the login screen... That's All Folks!"
+  echo
+
+  cp -f "$dldir/eeminent.sh" "$HOME/.local/bin"
 
   exit 0
 }
