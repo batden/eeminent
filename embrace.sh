@@ -158,7 +158,8 @@ build_all_go() {
   if pkg-config --exists efl \
       && command -v terminology >/dev/null \
       && command -v enlightenment >/dev/null; then
-    rebuild_essentials_go && build_alt
+    rebuild_essentials_go
+    build_alt
   else
     build_all
     mv_sysfiles
