@@ -246,7 +246,7 @@ do_bsh_alias() {
     touch "$HOME/.bash_aliases"
   fi
 
-  cat >"$HOME/.bash_aliases" <<'EOF'
+  cat >"$HOME/.bash_aliases" <<EOF
 # Compiler and linker flags added by EKONFIG.SH
 export CC="ccache gcc"
 export CXX="ccache g++"
@@ -265,5 +265,5 @@ if printenv | grep -q 'XDG_CURRENT_DESKTOP=Enlightenment'; then
 fi
 EOF
 
-  . "$HOME/.bash_aliases"
+  source "$HOME/.bash_aliases"
 }
