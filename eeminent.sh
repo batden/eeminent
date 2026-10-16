@@ -7,6 +7,7 @@
 
 # --- Call the companion scripts ---
 source "$HOME"/.eeminent/ekonfig.sh
+source "$HOME"/.eeminent/embrace.sh
 
 # ---  Menu hints and prompts ---
 # 1: Install core programs. This is recommended for users who are discovering the environment.
