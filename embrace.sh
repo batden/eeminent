@@ -15,6 +15,49 @@ build_all() {
   # the packages listed in the link below:
   # https://gist.github.com/batden/99a7ebdd5ba9d9e83b2446ab5f05f3dc
 
+  clear
+  printf "\n\n$orange_bright%s $off%s\n\n" "* BUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
+  do_bsh_alias
+  bin_deps
+  set_p_src
+
+  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
+
+  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
+  $clonefl
+  echo
+  $clonety
+  echo
+  $clonenl
+  echo
+  $cloneph
+  echo
+  $clonerg
+  echo
+  $clonevi
+  echo
+  $clonexp
+  echo
+  $clonecr
+  echo
+  $cloneve
+  echo
+  $clonedi
+  echo
+  $clonent
+  echo
+  $cloneft
+  echo
+  $clonepn
+  echo
+  $clonepl
+
+  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from Dimmus' git repository..."
+  $clonete
+  echo
+
+  cnt_dir_max
+
   sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
   sudo ldconfig
 
@@ -77,6 +120,9 @@ build_all() {
 }
 
 build_alt() {
+clear
+printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
+
   for i in "${prog_mbs_alt[@]}"; do
     cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten/$i"
     printf "\n$bold%s $off%s\n\n" "Building $i..."
@@ -109,54 +155,12 @@ build_alt() {
 }
 
 build_all_go() {
-  clear
-  printf "\n\n$orange_bright%s $off%s\n\n" "* BUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
-  do_bsh_alias
-  bin_deps
-  set_p_src
-
-  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
-
-  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
-  $clonefl
-  echo
-  $clonety
-  echo
-  $clonenl
-  echo
-  $cloneph
-  echo
-  $clonerg
-  echo
-  $clonevi
-  echo
-  $clonexp
-  echo
-  $clonecr
-  echo
-  $cloneve
-  echo
-  $clonedi
-  echo
-  $clonent
-  echo
-  $cloneft
-  echo
-  $clonepn
-  echo
-  $clonepl
-
-  printf "\n\n$bold%s $off%s\n\n" "Fetching source code from Dimmus' git repository..."
-  $clonete
-  echo
-
-  cnt_dir_max
-
-  if pkg-config --exists efl \
+if pkg-config --exists efl \
     && command -v terminology >/dev/null \
     && command -v enlightenment >/dev/null; then
     rebuild_essentials_go
     build_alt
+    mv_sysfiles
   else
     build_all
     mv_sysfiles
