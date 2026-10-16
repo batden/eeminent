@@ -36,7 +36,8 @@ menu_slct() {
     printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only"
     printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem"
 
-    if [ -n "$source_dir" ] && [ "$(find "$source_dir/enlighten" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | wc -l)" -eq 3 ]; then
+    if [ -n "$source_dir" ] && [ "$(find "$source_dir/enlighten" -mindepth 1 -maxdepth 1 -type d \
+      2>/dev/null | wc -l)" -eq 3 ]; then
       printf "5 $orange_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
     else
       printf "5 $orange_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
