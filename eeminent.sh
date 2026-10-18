@@ -24,32 +24,32 @@ menu_slct() {
 
   echo
   if [ "$is_einstl" == false ]; then
-    printf "1 %s%s %s\n\n" "$green_bright" "Install essentials only" "$off"
-    printf "2 %s%s %s\n\n" "$orange_bright" "Install the whole ecosystem" "$off"
-    printf "3 %s%s %s\n\n" "$blue_dim" "(Update and rebuild essentials only)" "$off"
-    printf "4 %s%s %s\n\n" "$magenta_dim" "(Update essentials and build the whole ecosystem)" "$off"
-    printf "5 %s%s %s\n\n" "$orange_dim" "(Update and rebuild the whole ecosystem)" "$off"
-    printf "6 %s%s %s\n\n" "$red_dim" "(Uninstall Enlightenment and related programs)" "$off"
-    printf "7 %s%s %s\n\n" "$italic" "Quit the script" "$off"
+    printf "1 %b%s %b\n\n" "$green_bright" "Install essentials only" "$off"
+    printf "2 %b%s %b\n\n" "$orange_bright" "Install the whole ecosystem" "$off"
+    printf "3 %b%s %b\n\n" "$blue_dim" "(Update and rebuild essentials only)" "$off"
+    printf "4 %b%s %b\n\n" "$magenta_dim" "(Update essentials and build the whole ecosystem)" "$off"
+    printf "5 %b%s %b\n\n" "$orange_dim" "(Update and rebuild the whole ecosystem)" "$off"
+    printf "6 %b%s %b\n\n" "$red_dim" "(Uninstall Enlightenment and related programs)" "$off"
+    printf "7 %b%s %b\n\n" "$italic" "Quit the script" "$off"
   else
-    printf "1 %s%s %s\n\n" "$green_dim" "(Install essentials only)" "$off"
-    printf "2 %s%s %s\n\n" "$orange_dim" "(Install the whole ecosystem)" "$off"
-    printf "3 %s%s %s\n\n" "$blue_bright" "Update and rebuild essentials only" "$off"
+    printf "1 %b%s %b\n\n" "$green_dim" "(Install essentials only)" "$off"
+    printf "2 %b%s %b\n\n" "$orange_dim" "(Install the whole ecosystem)" "$off"
+    printf "3 %b%s %b\n\n" "$blue_bright" "Update and rebuild essentials only" "$off"
 
     if [ -d "$source_dir/enlighten/efl" ] && [ -d "$source_dir/enlighten/ephoto" ]; then
-      printf "4 %s%s %s\n\n" "$magenta_dim" "(Update essentials and build the whole ecosystem)" "$off"
+      printf "4 %b%s %b\n\n" "$magenta_dim" "(Update essentials and build the whole ecosystem)" "$off"
     else
-      printf "4 %s%s %s\n\n" "$magenta_bright" "Update essentials and build the whole ecosystem" "$off"
+      printf "4 %b%s %b\n\n" "$magenta_bright" "Update essentials and build the whole ecosystem" "$off"
     fi
 
     if [ -n "$source_dir" ] && [ "$(find "$source_dir/enlighten" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | wc -l)" -eq 3 ]; then
-      printf "5 %s%s %s\n\n" "$orange_dim" "(Update and rebuild the whole ecosystem)" "$off"
+      printf "5 %b%s %b\n\n" "$orange_dim" "(Update and rebuild the whole ecosystem)" "$off"
     else
-      printf "5 %s%s %s\n\n" "$orange_bright" "Update and rebuild the whole ecosystem" "$off"
+      printf "5 %b%s %b\n\n" "$orange_bright" "Update and rebuild the whole ecosystem" "$off"
     fi
 
-    printf "6 %s%s %s\n\n" "$red_bright" "Uninstall Enlightenment and related programs" "$off"
-    printf "7 %s%s %s\n\n" "$italic" "Quit the script" "$off"
+    printf "6 %b%s %b\n\n" "$red_bright" "Uninstall Enlightenment and related programs" "$off"
+    printf "7 %b%s %b\n\n" "$italic" "Quit the script" "$off"
   fi
 
   read -r usr_input
