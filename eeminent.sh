@@ -5,7 +5,7 @@
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
 # necessary to enjoy the latest version of this unique environment.
 
-# tip: Set your terminal's scrollback to unlimited so you can always view previous output.
+# Tip: Set your terminal's scrollback to unlimited so you can always view previous output.
 
 # --- Call the companion scripts ---
 source "$HOME"/.eeminent/ekonfig.sh
