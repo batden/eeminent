@@ -7,7 +7,7 @@
 # close supervision by the user.
 
 # --- Call the companion script ---
-source "$HOME"/.equivoke/ekonfig.sh
+source "$HOME"/.eeminent/ekonfig.sh
 
 # --- Enlightenment programs to be removed ---
 prog_rm_max=(
@@ -196,7 +196,7 @@ del_list() {
   rm -rf .config/express
   rm -rf .config/rage
   rm -rf .config/terminology
-  rm -rf .local/bin/equivoke.sh
+  rm -rf .local/bin/eeminent.sh
   rm -rf "$scrfldr"
   sudo rm -rf "$esrcdir/enlighten"
 }
