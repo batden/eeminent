@@ -3,9 +3,19 @@
 
 # EEMINENT.SH only supports Resolute Raccoon. It does not support other Ubuntu releases or
 # non-Ubuntu distributions. It handles downloading, configuring, and building everything
-# necessary to enjoy the latest version of this unique environment.
+# necessary to enjoy the latest version of this unique environment. You can update your
+# Enlightenment desktop at any time, so there's no need to wait for the release of
+# new DEB packages. The programs are also better suited to your hardware. You can
+# even collaborate with the developers by reporting bugs, submitting patches,
+# and improving translations.
 
 # Tip: Set your terminal's scrollback to unlimited so you can always view previous output.
+
+# Heads up!
+# Enlightenment programs compiled from Git source code will inevitably conflict
+# with those installed from DEB packages. Therefore, remove all previous
+# binary installations of EFL, Enlightenment, and related applications
+# before running this script.
 
 # --- Call the companion scripts ---
 source "$HOME"/.eeminent/ekonfig.sh
