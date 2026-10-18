@@ -203,11 +203,6 @@ prog_mbs_full=(
 do_tests() {
   printf "\n\n$bold%s $off%s\n" "System checks..."
 
-  if systemd-detect-virt -q --container; then
-    printf "\n$red_bright%s $off%s\n\n" "EEMINENT IS NOT INTENDED FOR USE INSIDE CONTAINERS."
-    exit 1
-  fi
-
   if [[ "$distro" == "resolute" ]]; then
     printf "\n$green_bright%s $off%s\n\n" "Ubuntu ${distro^}... OK"
     sleep 1
