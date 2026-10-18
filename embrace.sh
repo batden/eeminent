@@ -123,7 +123,7 @@ build_alt() {
   clear
   printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
 
-cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
+  cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
 
   printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
   $cloneph
