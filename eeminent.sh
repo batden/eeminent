@@ -90,7 +90,7 @@ cnt_dir_alt() {
   count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
 
   case $count in
-    12)
+    15)
       printf "$green_bright%s $off%s\n\n" "All programs have been downloaded successfully."
       sleep 2
       ;;
@@ -99,7 +99,7 @@ cnt_dir_alt() {
       exit 1
       ;;
     *)
-      printf "\n$yellow_bright%s %s\n" "WARNING: ONLY $count OF 12 PROGRAMS HAVE BEEN DOWNLOADED!"
+      printf "\n$yellow_bright%s %s\n" "WARNING: NOT ALL COMPONENTS HAVE BEEN DOWNLOADED!"
       printf "\n$yellow_bright%s $off%s\n\n" "WAIT 10 SECONDS OR HIT CTRL+C TO EXIT NOW."
       sleep 10
       ;;
