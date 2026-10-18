@@ -9,7 +9,7 @@
 source "$HOME"/.eeminent/ekonfig.sh
 source "$HOME"/.eeminent/embrace.sh
 
-# ---  Menu hints and prompts ---
+# --- Menu hints and prompts ---
 # 1: Install core programs. This is recommended for users who are discovering the environment.
 # 2: Install the entire Enlightenment environment at once.
 # 3: Update and rebuild core programs.
