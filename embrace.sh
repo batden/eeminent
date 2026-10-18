@@ -121,7 +121,7 @@ build_all() {
 
 build_alt() {
   clear
-  printf "\n\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
+  printf "\n$magenta_bright%s $off%s\n\n" "* BUILDING THE OTHER COMPONENTS *"
 
   cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
 
