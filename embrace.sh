@@ -95,8 +95,8 @@ build_all() {
         ;;
       edi)
         if [ ! -d "/usr/lib/llvm-11" ]; then
-          printf "\n$yellow_bright%s %s\n" "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
-          printf "\n$yellow_bright%s $off%s\n\n" "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+          printf "\n$yellow_bright%s %s\n" "WARNING: llvm-11 dependencies were not found."
+          printf "\n$yellow_bright%s $off%s\n\n" "Building edi without libclang support."
           sleep 1
           meson setup build -Dbuildtype=release -Dlibclang=false
           ninja -C build
@@ -162,9 +162,9 @@ build_alt() {
       edi)
         if [ ! -d "/usr/lib/llvm-11" ]; then
           printf "\n$yellow_bright%s %s\n" \
-            "WARNING: LLVM-11 DEPENDENCIES WERE NOT FOUND."
+            "WARNING: llvm-11 dependencies were not found."
           printf "\n$yellow_bright%s $off%s\n\n" \
-            "BUILDING EDI WITHOUT LIBCLANG SUPPORT."
+            "Building edi without libclang support."
           sleep 1
           meson setup build -Dbuildtype=release -Dlibclang=false
           ninja -C build
