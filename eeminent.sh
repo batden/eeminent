@@ -35,7 +35,13 @@ menu_slct() {
     printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
     printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
     printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only"
-    printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem"
+
+
+    if [ -d "$source_dir/enlighten/efl" ] && [ -d "$source_dir/enlighten/ephoto" ]; then
+      printf "4 $magenta_dim%s $off%s\n\n" "(Update essentials and build the whole ecosystem)"
+    else
+      printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem"
+    fi
 
     if [ -n "$source_dir" ] && [ "$(find "$source_dir/enlighten" -mindepth 1 -maxdepth 1 -type d \
       2>/dev/null | wc -l)" -eq 3 ]; then

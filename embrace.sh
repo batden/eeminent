@@ -125,6 +125,8 @@ build_alt() {
 
   cd "$(cat "$HOME/.cache/ebuilds/storepath")/enlighten"
 
+
+
   printf "\n\n$bold%s $off%s\n\n" "Fetching source code from the Enlightenment git repositories..."
   $cloneph
   echo
