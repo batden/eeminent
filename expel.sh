@@ -289,6 +289,7 @@ uninstall_enlighten() {
   case $answer in
     y | Y)
       printf "\nOkay, let's proceed with the uninstallation.\n\n"
+      sleep 1
       ;;
     n | N)
       printf "\n$italic%s $off%s\n\n" "(Do not uninstall... OK)"
