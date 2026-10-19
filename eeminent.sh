@@ -30,6 +30,13 @@ source "$HOME/.eeminent/embrace.sh"
 # 6: Uninstall everything related to Enlightenment.
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
+record_menu_choice() {
+  local choice_dir="$HOME/.cache/ebuilds"
+  mkdir -p "$choice_dir"
+  printf '%s\t%s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$usr_input" >> "$choice_dir/menu_choices.log"
+  printf '%s\n' "$usr_input" > "$choice_dir/last_menu_choice"
+}
+
 menu_slct() {
     printf "1 $green_bright%s $off%s\n\n" "Install essentials only"
     printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem"
@@ -40,6 +47,7 @@ menu_slct() {
     printf "7 $italic%s $off%s\n\n" "Quit the script"
 
     read -r usr_input
+    record_menu_choice
 }
 
 slct_menu() {
@@ -52,6 +60,7 @@ slct_menu() {
     printf "7 $italic%s $off%s\n\n" "Quit the script"
 
     read -r usr_input
+    record_menu_choice
 }
 
 # --- Binary dependencies check ---
