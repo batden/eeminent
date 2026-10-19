@@ -52,7 +52,11 @@ menu_slct() {
     printf "1 %b%s %b\n\n" "$green_dim" "(Install essentials only)" "$off"
     printf "2 %b%s %b\n\n" "$orange_dim" "(Install the whole ecosystem)" "$off"
 
-    source_dir=$(cat "$HOME/.cache/ebuilds/storepath")
+    source_dir=
+    if [ -r "$HOME/.cache/ebuilds/storepath" ]; then
+      source_dir=$(cat "$HOME/.cache/ebuilds/storepath")
+    fi
+
     if [ -d "$source_dir/enlighten/efl" ] \
       && [ -d "$source_dir/enlighten/terminology" ] \
       && [ -d "$source_dir/enlighten/enlightenment" ]; then
