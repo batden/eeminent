@@ -91,7 +91,7 @@ build_all() {
         ;;
       terminology)
         meson setup build -Dbuildtype=release
-        ninja -C build
+        ninja -C build || mng_err
         ;;
       edi)
         if [ ! -d "/usr/lib/llvm-11" ]; then
@@ -254,7 +254,7 @@ rebuild_all_go() {
       terminology)
         sudo chown "$USER" build/.ninja*
         meson setup --reconfigure build -Dbuildtype=release
-        ninja -C build
+        ninja -C build || mng_err
         ;;
       edi)
         sudo chown "$USER" build/.ninja*
