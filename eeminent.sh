@@ -96,7 +96,7 @@ menu_slct() {
 
 # --- Binary dependencies check ---
 bin_deps() {
-  if ! sudo apt install "${deps[@]}"; then
+  if ! sudo apt install --no-install-recommends "${deps[@]}"; then
     err_msg "CONFLICTING OR MISSING DEB PACKAGES OR DPKG DATABASE IS LOCKED."
     exit 1
   fi
