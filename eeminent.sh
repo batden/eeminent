@@ -18,8 +18,8 @@
 # before running this script.
 
 # --- Call the companion scripts ---
-source "$HOME"/.eeminent/ekonfig.sh
-source "$HOME"/.eeminent/embrace.sh
+source "$HOME/.eeminent/ekonfig.sh"
+source "$HOME/.eeminent/embrace.sh"
 
 # --- Menu hints and prompts ---
 # 1: Install core programs.
@@ -32,7 +32,7 @@ source "$HOME"/.eeminent/embrace.sh
 
 menu_slct() {
     printf "1 $green_bright%s $off%s\n\n" "Install essentials only"
-    printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem%"
+    printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem"
     printf "3 $blue_dim%s $off%s\n\n" "(Update and rebuild essentials only)"
     printf "4 $magenta_dim%s $off%s\n\n" "(Update essentials and build the whole ecosystem)"
     printf "5 $orange_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
