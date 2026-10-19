@@ -50,7 +50,7 @@ That's it.
 
 You can uninstall Enlightenment and related applications from your computer at any time.
 
-To do so, run the script and select option 5 from the menu.
+To do so, run the script and select option 6 from the menu.
 
 ## In the Picture
 
