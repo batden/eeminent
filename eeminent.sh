@@ -318,6 +318,8 @@ rebuild_essentials_go() {
 
   echo
   printf "$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
+
+  exit 0
 }
 
 # --- First, display the selection menu... ---
