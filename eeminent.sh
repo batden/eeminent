@@ -268,7 +268,7 @@ build_essentials() {
         ;;
       terminology)
         meson setup build -Dbuildtype=release
-        ninja -C build
+        ninja -C build || mng_err
         ;;
     esac
 
