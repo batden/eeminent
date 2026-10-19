@@ -325,7 +325,7 @@ lo() {
   trap 'handle_sig 130' SIGINT
 
   usr_input=0
-  printf "\n$bold%s $off%s\n" "Please enter the number of your choice:"
+  printf "\n$bold%s $off%s\n\n" "Please enter the number of your choice:"
 
   if [ ! -x /usr/local/bin/enlightenment_start ]; then
     menu_slct
