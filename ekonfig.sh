@@ -73,6 +73,7 @@ cmake
 cowsay
 doxygen
 gettext
+gperf
 graphviz
 gstreamer1.0-plugins-bad
 gstreamer1.0-plugins-ugly
