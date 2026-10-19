@@ -31,26 +31,26 @@ source "$HOME"/.eeminent/embrace.sh
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
 menu_slct() {
-  is_einstl=$1
+  local is_einstl=${1:-false}
 
   echo
-  if [ "$is_einstl" == false ]; then
-    printf "1 %b%s %b\n\n" "$green_bright" "Install essentials only" "$off"
-    printf "2 %b%s %b\n\n" "$orange_bright" "Install the whole ecosystem" "$off"
-    printf "3 %b%s %b\n\n" "$blue_dim" "(Update and rebuild essentials only)" "$off"
-    printf "4 %b%s %b\n\n" "$magenta_dim" "(Update essentials and build the whole ecosystem)" "$off"
-    printf "5 %b%s %b\n\n" "$orange_dim" "(Update and rebuild the whole ecosystem)" "$off"
-    printf "6 %b%s %b\n\n" "$red_dim" "(Uninstall Enlightenment and related programs)" "$off"
-    printf "7 %b%s %b\n\n" "$italic" "Quit the script" "$off"
+  if [[ $is_einstl == false ]]; then
+    printf "%b1 Install essentials only%b\n\n" "$green_bright" "$off"
+    printf "%b2 Install the whole ecosystem%b\n\n" "$orange_bright" "$off"
+    printf "%b3 (Update and rebuild essentials only)%b\n\n" "$blue_dim" "$off"
+    printf "%b4 (Update essentials and build the whole ecosystem)%b\n\n" "$magenta_dim" "$off"
+    printf "%b5 (Update and rebuild the whole ecosystem)%b\n\n" "$orange_dim" "$off"
+    printf "%b6 (Uninstall Enlightenment and related programs)%b\n\n" "$red_dim" "$off"
+    printf "%b7 Quit the script%b\n\n" "$italic" "$off"
   else
-    printf "1 %b%s %b\n\n" "$green_bright" "(Install essentials only)" "$off"
-    printf "2 %b%s %b\n\n" "$orange_bright" "(Install the whole ecosystem)" "$off"
-    printf "3 %b%s %b\n\n" "$blue_dim" "Update and rebuild essentials only" "$off"
-    printf "4 %b%s %b\n\n" "$magenta_dim" "Update essentials and build the whole ecosystem" "$off"
-    printf "5 %b%s %b\n\n" "$orange_dim" "Update and rebuild the whole ecosystem" "$off"
-    printf "6 %b%s %b\n\n" "$red_dim" "Uninstall Enlightenment and related programs" "$off"
-    printf "7 %b%s %b\n\n" "$italic" "Quit the script" "$off"
-fi
+    printf "%b1 (Install essentials only)%b\n\n" "$green_bright" "$off"
+    printf "%b2 (Install the whole ecosystem)%b\n\n" "$orange_bright" "$off"
+    printf "%b3 Update and rebuild essentials only%b\n\n" "$blue_dim" "$off"
+    printf "%b4 Update essentials and build the whole ecosystem%b\n\n" "$magenta_dim" "$off"
+    printf "%b5 Update and rebuild the whole ecosystem%b\n\n" "$orange_dim" "$off"
+    printf "%b6 Uninstall Enlightenment and related programs%b\n\n" "$red_dim" "$off"
+    printf "%b7 Quit the script%b\n\n" "$italic" "$off"
+  fi
 
   read -r usr_input
 }
