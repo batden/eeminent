@@ -116,6 +116,7 @@ librlottie-dev
 librsvg2-dev
 libscim-dev
 libsndfile1-dev
+libspectre-dev
 libssl-dev
 libtiff-dev
 libudev-dev
