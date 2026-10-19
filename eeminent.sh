@@ -31,25 +31,25 @@ source "$HOME"/.eeminent/embrace.sh
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
 menu_slct() {
-    printf "1 $green_bright%s $off%s\n\n" "Install essentials only%s\n\n"
-    printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem%s\n\n"
-    printf "3 $blue_dim%s $off%s\n\n" "(Update and rebuild essentials only)%s\n\n"
-    printf "4 $magenta_dim%s $off%s\n\n" "(Update essentials and build the whole ecosystem)%s\n\n"
-    printf "5 $orange_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)%s\n\n"
-    printf "6 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)%s\n\n"
-    printf "7 $italic%s $off%s\n\n" "Quit the script%s\n\n"
+    printf "1 $green_bright%s $off%s\n\n" "Install essentials only"
+    printf "2 $orange_bright%s $off%s\n\n" "Install the whole ecosystem%"
+    printf "3 $blue_dim%s $off%s\n\n" "(Update and rebuild essentials only)"
+    printf "4 $magenta_dim%s $off%s\n\n" "(Update essentials and build the whole ecosystem)"
+    printf "5 $orange_dim%s $off%s\n\n" "(Update and rebuild the whole ecosystem)"
+    printf "6 $red_dim%s $off%s\n\n" "(Uninstall Enlightenment and related programs)"
+    printf "7 $italic%s $off%s\n\n" "Quit the script"
 
     read -r usr_input
 }
 
 slct_menu() {
-    printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)%s\n\n"
-    printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)%s\n\n"
-    printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only%s\n\n"
-    printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem%s\n\n"
-    printf "5 $orange_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem%s\n\n"
-    printf "6 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs%s\n\n"
-    printf "7 $italic%s $off%s\n\n" "Quit the script%s\n\n"
+    printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
+    printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
+    printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only"
+    printf "4 $magenta_bright%s $off%s\n\n" "Update essentials and build the whole ecosystem"
+    printf "5 $orange_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
+    printf "6 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs"
+    printf "7 $italic%s $off%s\n\n" "Quit the script"
 
     read -r usr_input
 }
