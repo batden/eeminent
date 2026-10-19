@@ -31,10 +31,6 @@ source "$HOME"/.eeminent/embrace.sh
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
 menu_slct() {
-  local is_einstl=${1:-false}
-
-  echo
-  if [[ $is_einstl == false ]]; then
     printf "%b1 Install essentials only%b\n\n" "$green_bright" "$off"
     printf "%b2 Install the whole ecosystem%b\n\n" "$orange_bright" "$off"
     printf "%b3 (Update and rebuild essentials only)%b\n\n" "$blue_dim" "$off"
@@ -42,7 +38,9 @@ menu_slct() {
     printf "%b5 (Update and rebuild the whole ecosystem)%b\n\n" "$orange_dim" "$off"
     printf "%b6 (Uninstall Enlightenment and related programs)%b\n\n" "$red_dim" "$off"
     printf "%b7 Quit the script%b\n\n" "$italic" "$off"
-  else
+}
+
+slct_menu() {
     printf "%b1 (Install essentials only)%b\n\n" "$green_bright" "$off"
     printf "%b2 (Install the whole ecosystem)%b\n\n" "$orange_bright" "$off"
     printf "%b3 Update and rebuild essentials only%b\n\n" "$blue_dim" "$off"
@@ -50,10 +48,9 @@ menu_slct() {
     printf "%b5 Update and rebuild the whole ecosystem%b\n\n" "$orange_dim" "$off"
     printf "%b6 Uninstall Enlightenment and related programs%b\n\n" "$red_dim" "$off"
     printf "%b7 Quit the script%b\n\n" "$italic" "$off"
-  fi
+}
 
   read -r usr_input
-}
 
 # --- Binary dependencies check ---
 bin_deps() {
@@ -329,9 +326,9 @@ lo() {
   printf "\n$bold%s $off%s\n" "Please enter the number of your choice:"
 
   if [ ! -x /usr/local/bin/enlightenment_start ]; then
-    menu_slct false
+    menu_slct
   else
-    menu_slct true
+    slct_menu
   fi
 }
 
