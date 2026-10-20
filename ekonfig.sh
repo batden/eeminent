@@ -70,7 +70,6 @@ err_msg() {
 }
 
 deps=(
-bear
 build-essential
 ccache
 check
