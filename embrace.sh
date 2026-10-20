@@ -4,7 +4,7 @@
 # This script contains functions used by the other scripts.
 
 # Optional: Additional steps may be taken to achieve optimal results.
-# Please refer to the comments of the build_all() function.
+# Please refer to the comments of the build_all() function below.
 
 # --- Call the companion script ---
 source "$HOME"/.eeminent/ekonfig.sh
