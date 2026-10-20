@@ -142,21 +142,8 @@ build_alt() {
 
     case $i in
       edi)
-        if [ ! -d "/usr/lib/llvm-11" ]; then
-          printf "\n$yellow_bright%s %s\n" \
-            "WARNING: llvm-11 dependencies were not found."
-          printf "$yellow_bright%s $off%s\n\n" \
-            "Building edi without libclang support."
-          sleep 1
-          meson setup build -Dbuildtype=release -Dlibclang=false
-          ninja -C build
-        else
-          meson setup build -Dbuildtype=release \
-            -Dlibclang=true \
-            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-            -Dlibclang-libdir=/usr/lib/llvm-11/lib
-          ninja -C build
-        fi
+        meson setup build -Dbuildtype=release -Dlibclang=false
+        ninja -C build
         ;;
       *)
         meson setup build -Dbuildtype=release
@@ -237,18 +224,8 @@ rebuild_all_go() {
         ;;
       edi)
         sudo chown "$USER" build/.ninja*
-
-        if [ ! -d "/usr/lib/llvm-11" ]; then
-          sleep 1
-          meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
-          ninja -C build
-        else
-          meson setup --reconfigure build -Dbuildtype=release \
-            -Dlibclang=true \
-            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-            -Dlibclang-libdir=/usr/lib/llvm-11/lib
-          ninja -C build
-        fi
+        meson setup --reconfigure build -Dbuildtype=release -Dlibclang=false
+        ninja -C build
         ;;
       *)
         sudo chown "$USER" build/.ninja*
