@@ -56,7 +56,7 @@ slct_menu() {
     printf "1 $green_dim%s $off%s\n\n" "(Install essentials only)"
     printf "2 $orange_dim%s $off%s\n\n" "(Install the whole ecosystem)"
     printf "3 $blue_bright%s $off%s\n\n" "Update and rebuild essentials only"
-    printf "4 $magenta_bright%s $off%s\n\n" "Build the whole ecosyste upon existing essentials"
+    printf "4 $magenta_bright%s $off%s\n\n" "Build the whole ecosystem upon existing essentials"
     printf "5 $orange_bright%s $off%s\n\n" "Update and rebuild the whole ecosystem"
     printf "6 $red_bright%s $off%s\n\n" "Uninstall Enlightenment and related programs"
     printf "7 $italic%s $off%s\n\n" "Quit the script"
