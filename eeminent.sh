@@ -30,6 +30,8 @@ source "$HOME/.eeminent/embrace.sh"
 # 6: Uninstall everything related to Enlightenment.
 # 7: Exit the script (same thing as pressing Ctrl+C).
 
+
+# Save the selected menu option in the user's cache for later reference.
 record_menu_choice() {
   choice_dir="$HOME/.cache/ebuilds"
   mkdir -p "$choice_dir"
