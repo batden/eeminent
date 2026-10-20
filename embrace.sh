@@ -3,18 +3,10 @@
 
 # This script contains functions used by the other scripts.
 
-# Optional: Additional steps may be taken to achieve optimal results.
-# Please refer to the comments of the build_all() function below.
-
 # --- Call the companion script ---
 source "$HOME"/.eeminent/ekonfig.sh
 
 build_all() {
-  # Fetch edi's additional dependencies before executing the script?
-  # If you need libclang support in edi, you will also need to install
-  # the packages listed in the link below:
-  # https://gist.github.com/batden/99a7ebdd5ba9d9e83b2446ab5f05f3dc
-
   clear
   printf "\n\n$orange_bright%s $off%s\n\n" "* BUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
   do_bsh_alias
@@ -94,19 +86,8 @@ build_all() {
         ninja -C build || mng_err
         ;;
       edi)
-        if [ ! -d "/usr/lib/llvm-11" ]; then
-          printf "\n$yellow_bright%s %s\n" "WARNING: llvm-11 dependencies were not found."
-          printf "$yellow_bright%s $off%s\n\n" "Building edi without libclang support."
-          sleep 1
-          meson setup build -Dbuildtype=release -Dlibclang=false
-          ninja -C build
-        else
-          meson setup build -Dbuildtype=release \
-            -Dlibclang=true \
-            -Dlibclang-headerdir=/usr/lib/llvm-11/include \
-            -Dlibclang-libdir=/usr/lib/llvm-11/lib
-          ninja -C build
-        fi
+        meson setup build -Dbuildtype=release -Dlibclang=false
+        ninja -C build
         ;;
       *)
         meson setup build -Dbuildtype=release
