@@ -114,7 +114,7 @@ cnt_dir_alt() {
       exit 1
       ;;
     *)
-      printf "\n$yellow_bright%s %s\n" "WARNING: not all components have been downloaded!"
+      printf "\n$yellow_bright%s %s\n" "WARNING: Not all components have been downloaded!"
       printf "\n$yellow_bright%s $off%s\n\n" "Wait 10 seconds or hit ctrl+c to exit now."
       sleep 10
       ;;
@@ -141,7 +141,7 @@ cnt_dir_max() {
       exit 1
       ;;
     *)
-      printf "\n$yellow_bright%s %s\n" "WARNING: only $count of 15 programs have been downloaded!"
+      printf "\n$yellow_bright%s %s\n" "WARNING: Only $count of 15 programs have been downloaded!"
       printf "\n$yellow_bright%s $off%s\n\n" "Wait 10 seconds or hit ctrl+c to exit now."
       sleep 10
       ;;
