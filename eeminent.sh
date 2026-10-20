@@ -306,7 +306,7 @@ build_essentials_go() {
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
   echo
-  cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \
+  cowsay -y "Now log out of your existing session, then select Enlightenment (Wayland) \
     on the login screen... That's All Folks!"
   echo
 
