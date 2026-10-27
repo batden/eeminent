@@ -190,7 +190,6 @@ mv_sysfiles() {
   sudo mkdir -p /etc/enlightenment
   sudo mv -f /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
   sudo mv -f /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
-  sudo rm -f /usr/local/etc/enlightenment/sysactions.conf
 }
 
 build_essentials() {
