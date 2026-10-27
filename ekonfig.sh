@@ -93,6 +93,7 @@ libexif-dev
 libfontconfig-dev
 libfribidi-dev
 libfreetype-dev
+libgeoclue-2-dev
 libgif-dev
 libgles-dev
 libgraphviz-dev
@@ -145,6 +146,8 @@ libxtst-dev
 meson
 ninja-build
 systemd-dev
+texlive-base
+texlive-font-utils
 valgrind
 zlib1g-dev
 )
