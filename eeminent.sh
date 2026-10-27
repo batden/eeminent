@@ -337,6 +337,11 @@ rebuild_essentials_go() {
     sudo rm -f /usr/local/etc/enlightenment/sysactions.conf
   fi
   
+ if [ -e /usr/local/etc/enlightenment/system.conf ]; then
+    sudo rm -f /usr/local/etc/enlightenment/system.conf
+  fi
+  
+
   echo
   printf "$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
 
