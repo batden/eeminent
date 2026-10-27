@@ -81,6 +81,7 @@ gperf
 graphviz
 gstreamer1.0-plugins-bad
 gstreamer1.0-plugins-ugly
+i2c-tools
 libasound2-dev
 libavahi-client-dev
 libavif-dev
