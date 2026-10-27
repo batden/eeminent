@@ -243,6 +243,10 @@ rebuild_all_go() {
     sudo ldconfig
   done
 
+  if [ -e /usr/local/etc/enlightenment/sysactions.conf ]; then
+    sudo rm -f /usr/local/etc/enlightenment/sysactions.conf
+  fi
+
   echo
   printf "$green_bright%s $off%s\n\n" "Enlightenment components rebuilt successfully."
 
