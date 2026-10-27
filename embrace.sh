@@ -243,6 +243,8 @@ rebuild_all_go() {
     sudo ldconfig
   done
 
+  rm_sysfiles
+
   echo
   printf "$green_bright%s $off%s\n\n" "Enlightenment components rebuilt successfully."
 
