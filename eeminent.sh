@@ -195,6 +195,7 @@ mv_sysfiles() {
   sudo mv -f /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
 }
 
+# --- Remove unneeded Enlightenment system files ---
 rm_sysfiles() {
   if [ -e /usr/local/etc/enlightenment/sysactions.conf ]; then
     sudo rm -f /usr/local/etc/enlightenment/sysactions.conf
