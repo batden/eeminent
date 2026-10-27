@@ -21,6 +21,9 @@
 # in memory of Aaron Swartz.
 # See https://creativecommons.org/licenses/by/4.0/
 
+# --- Uncomment the following line if you want the script to output in C locale. ---
+#export LANG=C
+
 # --- Call the companion scripts ---
 source "$HOME/.eeminent/ekonfig.sh"
 source "$HOME/.eeminent/embrace.sh"
