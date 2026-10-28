@@ -218,13 +218,13 @@ do_tests() {
     printf "\n$green_bright%s $off%s\n\n" "Ubuntu ${distro^}... OK"
     sleep 1
   else
-    printf "\n$red_bright%s $off%s\n\n" "UNSUPPORTED OPERATING SYSTEM [ $(lsb_release -ds) ]."
+    printf "\n$red_bright%s $off%s\n\n" "Unsupported operating system [ $(lsb_release -ds) ]."
     exit 1
   fi
 
   if ! git ls-remote https://git.enlightenment.org/enlightenment/efl.git HEAD &>/dev/null; then
-    printf "\n$red_bright%s %s\n" "REMOTE HOST IS UNREACHABLE——TRY AGAIN LATER"
-    printf "$red_bright%s $off%s\n\n" "OR CHECK YOUR INTERNET CONNECTION."
+    printf "\n$red_bright%s %s\n" "Remote host is unreachable——try again later"
+    printf "$red_bright%s $off%s\n\n" "or check your internet connection."
     exit 1
   fi
 
