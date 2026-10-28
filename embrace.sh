@@ -245,8 +245,11 @@ rebuild_all_go() {
 
   rm_sysfiles
 
-  echo
-  printf "$green_bright%s $off%s\n\n" "Enlightenment components rebuilt successfully."
+  if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
+    enlightenment_remote -restart
+  fi
+
+  printf "\n$green_bright%s $off%s\n\n" "Enlightenment components rebuilt successfully."
 
   exit 0
 }

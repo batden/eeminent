@@ -349,8 +349,11 @@ rebuild_essentials_go() {
   rebuild_essentials
   rm_sysfiles
 
-  echo
-  printf "$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
+  if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
+    enlightenment_remote -restart
+  fi
+
+  printf "\n$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
 
   exit 0
 }
