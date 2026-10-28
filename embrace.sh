@@ -190,6 +190,13 @@ build_all_go() {
 rebuild_all_go() {
   clear
   printf "\n\n$orange_bright%s $off%s\n\n" "* REBUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
+
+  if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
+    printf "\n$red_bright%s $off%s\n\n" \
+      "Please log in to the default desktop environment to do this."
+    exit 1
+  fi
+
   bin_deps
 
   for i in "${prog_mbs_full[@]}"; do
