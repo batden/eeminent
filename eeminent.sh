@@ -346,12 +346,14 @@ rebuild_essentials_go() {
   chmod +x "$HOME/.local/bin/eeminent.sh"
   sleep 1
 
+  if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
+    printf "\n$red_bright%s $off%s\n\n" \
+      "Please log in to the default desktop environment to do this."
+    exit 1
+  fi
+
   rebuild_essentials
   rm_sysfiles
-
-  if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
-    enlightenment_remote -restart
-  fi
 
   printf "\n$green_bright%s $off%s\n\n" "Essential components rebuilt successfully."
 
@@ -409,7 +411,7 @@ and_behold() {
         exit 0
         ;;
       *)
-        printf "\n$red_bright%s $off%s\n\n" "INVALID INPUT."
+        printf "\n$red_bright%s $off%s\n\n" "Invalid input."
         exit 1
         ;;
     esac
