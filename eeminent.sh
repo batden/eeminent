@@ -348,7 +348,7 @@ rebuild_essentials_go() {
 
   if [ "$XDG_CURRENT_DESKTOP" == "Enlightenment" ]; then
     printf "\n$red_bright%s $off%s\n\n" \
-      "Please log in to the default desktop environment to do this."
+      "Please log in to your default desktop to do this."
     exit 1
   fi
 
