@@ -74,7 +74,7 @@ slct_menu() {
 # --- Binary dependencies check ---
 bin_deps() {
   if ! sudo apt install --no-install-recommends "${deps[@]}"; then
-    err_msg "CONFLICTING OR MISSING DEB PACKAGES OR DPKG DATABASE IS LOCKED."
+    err_msg "Conflicting or missing deb packages or dpkg database is locked."
     exit 1
   fi
 }
@@ -84,7 +84,7 @@ cnt_dir_min() {
   count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
 
   if [ ! -d efl ] || [ ! -d terminology ] || [ ! -d enlightenment ]; then
-    err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
+    err_msg "Failed to download main component."
     exit 1
   fi
 
