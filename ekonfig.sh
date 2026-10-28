@@ -42,7 +42,7 @@ mng_err() {
   trap - EXIT
 
   if [ "$exit_code" -ne 0 ]; then
-    err_msg "SCRIPT EXITED WITH ERROR" "$exit_code"
+    err_msg "Script exited with error" "$exit_code"
   fi
 
   exit "$exit_code"
@@ -52,7 +52,7 @@ handle_sig() {
    local exit_code=$1
 
   trap - SIGINT SIGTERM EXIT
-  err_msg "KEYBOARD INTERRUPT" "$exit_code"
+  err_msg "Keyboard interrupt" "$exit_code"
   exit "$exit_code"
 }
 
