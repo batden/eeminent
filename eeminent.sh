@@ -99,7 +99,7 @@ cnt_dir_min() {
       sleep 2
       ;;
     *)
-      err_msg "OOPS! SOMETHING WENT WRONG."
+      err_msg "Oops! Something went wrong."
       exit 1
       ;;
   esac
@@ -116,7 +116,7 @@ cnt_dir_alt() {
       sleep 2
       ;;
     0)
-      err_msg "OOPS! SOMETHING WENT WRONG."
+      err_msg "Oops! Something went wrong."
       exit 1
       ;;
     *)
@@ -133,7 +133,7 @@ cnt_dir_max() {
   count=$(find . -mindepth 1 -maxdepth 1 -type d | wc -l)
 
   if [ ! -d efl ] || [ ! -d terminology ] || [ ! -d enlightenment ]; then
-    err_msg "FAILED TO DOWNLOAD MAIN COMPONENT."
+    err_msg "Failed to download main component."
     exit 1
   fi
 
@@ -143,7 +143,7 @@ cnt_dir_max() {
       sleep 2
       ;;
     0)
-      err_msg "OOPS! SOMETHING WENT WRONG."
+      err_msg "Oops! Something went wrong."
       exit 1
       ;;
     *)
@@ -165,7 +165,7 @@ set_p_src() {
 (e.g. /home/$LOGNAME/Documents or /home/$LOGNAME/testing): " mypath
 
   if [[ ! "$mypath" =~ ^/home/$LOGNAME.* ]]; then
-    err_msg "PATH MUST BE WITHIN YOUR HOME DIRECTORY (/home/$LOGNAME)"
+    err_msg "Path must be within your home directory (/home/$LOGNAME)"
     exit 1
   fi
 
