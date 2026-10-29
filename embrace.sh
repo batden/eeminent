@@ -7,7 +7,6 @@
 # in memory of Aaron Swartz.
 # See https://creativecommons.org/licenses/by/4.0/
 
-
 # --- Call the companion script ---
 source "$HOME"/.eeminent/ekonfig.sh
 
