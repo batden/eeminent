@@ -315,6 +315,6 @@ uninstall_enlighten() {
     printf "\n"
   done
 
-  del_list >/dev/null
+  del_list &>/dev/null
   final_stp
 }
