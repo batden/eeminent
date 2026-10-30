@@ -174,7 +174,7 @@ build_all_go() {
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
   # Note: Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
-  # to your Gnome Desktop; you can safely delete them if they bother you.
+  # to your Desktop folder. You can safely delete them if it bothers you.
 
   echo
   cowsay "Now log out of your existing session, then select Enlightenment (Wayland) \

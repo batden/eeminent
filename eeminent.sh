@@ -326,6 +326,9 @@ build_essentials_go() {
   # This will protect the file from accidental deletion.
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
+  # Note: Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
+  # to your Desktop folder. You can safely delete them if it bothers you.
+
   echo
   cowsay -y "Now log out of your existing session, then select Enlightenment (Wayland) \
     on the login screen... That's All Folks!"
