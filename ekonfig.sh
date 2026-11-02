@@ -70,6 +70,7 @@ err_msg() {
 }
 
 deps=(
+arc-theme
 build-essential
 ccache
 check
@@ -146,6 +147,7 @@ libxss-dev
 libxtst-dev
 meson
 ninja-build
+papirus-icon-theme
 systemd-dev
 texlive-base
 texlive-font-utils
