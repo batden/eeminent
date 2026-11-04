@@ -1,7 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC1091 disable=SC2154 disable=SC2164
 
-# This script contains functions used by the other scripts.
+# This script contains functions used by eeminent.sh.
 
 # EMBRACE.SH is licensed under a Creative Commons Attribution 4.0 International License,
 # in memory of Aaron Swartz.
