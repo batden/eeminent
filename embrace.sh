@@ -7,9 +7,6 @@
 # in memory of Aaron Swartz.
 # See https://creativecommons.org/licenses/by/4.0/
 
-# --- Call the companion script ---
-source "$HOME"/.eeminent/ekonfig.sh
-
 build_all() {
   clear
   printf "\n\n$orange_bright%s $off%s\n\n" "* BUILDING THE FULL ENLIGHTENMENT ECOSYSTEM *"
