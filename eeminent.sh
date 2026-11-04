@@ -188,28 +188,6 @@ set_p_src() {
   cd "$esrcdir/enlighten"
 }
 
-# --- Ensure that Enlightenment system files are correctly installed ---
-mv_sysfiles() {
-  sudo mkdir -p /etc/enlightenment
-  sudo mv -f /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo mv -f /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
-}
-
-# --- Remove unneeded Enlightenment system files ---
-rm_sysfiles() {
-  if [ -e /usr/local/etc/enlightenment/sysactions.conf ]; then
-    sudo rm -f /usr/local/etc/enlightenment/sysactions.conf
-  fi
-
-  if [ -e /usr/local/etc/enlightenment/system.conf ]; then
-    sudo rm -f /usr/local/etc/enlightenment/system.conf
-  fi
-
-  if [ -e /usr/local/etc/xdg/menus/e-applications.menu ]; then
-    sudo rm -f /usr/local/etc/xdg/menus/e-applications.menu
-  fi
-}
-
 build_essentials() {
   do_bsh_alias
   bin_deps
