@@ -24,9 +24,8 @@
 # --- Uncomment the following line if you want the script to output in C locale. ---
 #export LANG=C
 
-# --- Call the companion scripts ---
+# --- Call the companion script ---
 source "$HOME/.eeminent/ekonfig.sh"
-source "$HOME/.eeminent/embrace.sh"
 
 # --- Menu hints and prompts ---
 # 1: Install core programs.
