@@ -13,6 +13,8 @@ green_bright="\e[1;38;5;118m"
 magenta_bright="\e[1;38;5;201m"
 orange_bright="\e[1;38;5;208m"
 yellow_bright="\e[1;38;5;226m"
+yellow_dim="\e[2;38;5;226m"
+
 blue_bright="\e[1;38;5;74m"
 red_bright="\e[1;38;5;1m"
 green_dim="\e[2;38;5;118m"
