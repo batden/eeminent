@@ -69,6 +69,7 @@ err_msg() {
   fi
 }
 
+# --- Build dependencies, recommended and script-related packages ---
 deps=(
 arc-theme
 build-essential
