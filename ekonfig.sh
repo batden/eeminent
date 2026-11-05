@@ -71,89 +71,89 @@ err_msg() {
 
 # --- Build dependencies, recommended and script-related packages ---
 deps=(
-arc-theme
-build-essential
-ccache
-check
-cmake
-cowsay
-doxygen
-gettext
-gperf
-graphviz
-gstreamer1.0-plugins-bad
-gstreamer1.0-plugins-ugly
-i2c-tools
-libasound2-dev
-libavahi-client-dev
-libavif-dev
-libbluetooth-dev
-libbz2-dev
-libblkid-dev
-libconfig-dev
-libddcutil-dev
-libexif-dev
-libfontconfig-dev
-libfribidi-dev
-libfreetype-dev
-libgeoclue-2-dev
-libgif-dev
-libgles-dev
-libgraphviz-dev
-libgstreamer-plugins-base1.0-dev
-libgstreamer1.0-dev
-libharfbuzz-dev
-libheif-dev
-libi2c-dev
-libibus-1.0-dev
-libinput-dev
-libinput-tools
-libjpeg-dev
-libjson-c-dev
-libjxl-dev
-liblua5.2-dev
-liblz4-dev
-libopenjp2-7-dev
-libosmesa6-dev
-libpam0g-dev
-libpipewire-0.3-dev
-libpng-dev
-libpoppler-cpp-dev
-libpoppler-dev
-libpulse-dev
-libraw-dev
-librlottie-dev
-librsvg2-dev
-libscim-dev
-libsndfile1-dev
-libspectre-dev
-libssl-dev
-libtiff-dev
-libudev-dev
-libudisks2-dev
-libunibreak-dev
-libunwind-dev
-libwebp-dev
-libx11-dev
-libx11-xcb-dev
-libxcomposite-dev
-libxcursor-dev
-libxdamage-dev
-libxinerama-dev
-libxkbcommon-dev
-libxkbcommon-x11-dev
-lxmenu-data
-libxrandr-dev
-libxss-dev
-libxtst-dev
-meson
-ninja-build
-papirus-icon-theme
-systemd-dev
-texlive-base
-texlive-font-utils
-valgrind
-zlib1g-dev
+  arc-theme
+  build-essential
+  ccache
+  check
+  cmake
+  cowsay
+  doxygen
+  gettext
+  gperf
+  graphviz
+  gstreamer1.0-plugins-bad
+  gstreamer1.0-plugins-ugly
+  i2c-tools
+  libasound2-dev
+  libavahi-client-dev
+  libavif-dev
+  libbluetooth-dev
+  libbz2-dev
+  libblkid-dev
+  libconfig-dev
+  libddcutil-dev
+  libexif-dev
+  libfontconfig-dev
+  libfribidi-dev
+  libfreetype-dev
+  libgeoclue-2-dev
+  libgif-dev
+  libgles-dev
+  libgraphviz-dev
+  libgstreamer-plugins-base1.0-dev
+  libgstreamer1.0-dev
+  libharfbuzz-dev
+  libheif-dev
+  libi2c-dev
+  libibus-1.0-dev
+  libinput-dev
+  libinput-tools
+  libjpeg-dev
+  libjson-c-dev
+  libjxl-dev
+  liblua5.2-dev
+  liblz4-dev
+  libopenjp2-7-dev
+  libosmesa6-dev
+  libpam0g-dev
+  libpipewire-0.3-dev
+  libpng-dev
+  libpoppler-cpp-dev
+  libpoppler-dev
+  libpulse-dev
+  libraw-dev
+  librlottie-dev
+  librsvg2-dev
+  libscim-dev
+  libsndfile1-dev
+  libspectre-dev
+  libssl-dev
+  libtiff-dev
+  libudev-dev
+  libudisks2-dev
+  libunibreak-dev
+  libunwind-dev
+  libwebp-dev
+  libx11-dev
+  libx11-xcb-dev
+  libxcomposite-dev
+  libxcursor-dev
+  libxdamage-dev
+  libxinerama-dev
+  libxkbcommon-dev
+  libxkbcommon-x11-dev
+  lxmenu-data
+  libxrandr-dev
+  libxss-dev
+  libxtst-dev
+  meson
+  ninja-build
+  papirus-icon-theme
+  systemd-dev
+  texlive-base
+  texlive-font-utils
+  valgrind
+  zlib1g-dev
 )
 
 # --- Source repositories of Enlightenment programs ---
