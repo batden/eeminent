@@ -7,7 +7,6 @@
 # in memory of Aaron Swartz.
 # See https://creativecommons.org/licenses/by/4.0/
 
-
 # --- Color and formatting ---
 green_bright="\e[1;38;5;118m"
 magenta_bright="\e[1;38;5;201m"
