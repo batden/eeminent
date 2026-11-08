@@ -1,8 +1,8 @@
 #!/bin/bash
 # shellcheck disable=SC1091 disable=SC2154 disable=SC2164
 
-# EEMINENT.SH only supports Resolute Raccoon. It does not support other Ubuntu releases or
-# non-Ubuntu distributions. It handles downloading, configuring, and building everything
+# EEMINENT.SH only supports Ubuntu Resolute Raccoon. It does not support other Ubuntu flavors
+# or non-Ubuntu distributions. It handles downloading, configuring, and building everything
 # necessary to enjoy the latest version of this unique environment. You can update your
 # Enlightenment desktop at any time, so there's no need to wait for the release of
 # new DEB packages. The programs are also better suited to your hardware. You can
@@ -304,7 +304,7 @@ build_essentials_go() {
   sudo chattr +i "$HOME/.cache/ebuilds/storepath"
 
   # Note: Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
-  # to your Desktop folder. You can safely delete them if it bothers you.
+  # to your GNOME Desktop folder. You can safely delete them if it bothers you.
 
   echo
   cowsay -y "Now log out of your existing session, then select Enlightenment (Wayland) \
